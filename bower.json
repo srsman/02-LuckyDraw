@@ -1,0 +1,23 @@
+{
+  "name": "Pro2-LuckyDraw",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "keywords": [
+    "Wechat",
+    "LuckyDraw",
+    "Laravel"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootswatch": "https://github.com/thomaspark/bootswatch.git#^3.3.6+1"
+  }
+}
