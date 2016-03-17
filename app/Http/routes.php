@@ -12,11 +12,23 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/admin', function () {
-    return view('admin');
+    return view('setPrize');
+});
+
+Route::get('/admin/setPrize', function () {
+    return view('setPrize');
+});
+
+Route::get('/admin/queryPrize', function () {
+    return view('queryPrize');
+});
+
+Route::get('/admin/changePasswd', function () {
+    return view('changePasswd');
 });
 
 /*
