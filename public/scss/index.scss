@@ -1,0 +1,92 @@
+@import "variable";
+
+a:link,
+a:hover,
+a:active,
+.btn:focus,
+.btn:active:focus,
+.btn-default:active:focus,
+.btn-primary:active:focus,
+.btn-info:active:focus,
+.btn-success:active:focus,
+.btn-warning:active:focus,
+.btn-danger:active:focus, {
+	outline: none;
+}
+
+html,
+body {
+	background-color: $bg-color;
+}
+
+.parent {
+	display: table;
+}
+
+.middle {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+
+
+// 管理后台
+#login,
+#changePasswd {
+	margin-top: 120px;
+}
+
+// 奖项设置与查询
+#set-prize,
+#query-prize {
+	margin-top: 60px;
+
+	@media screen and (max-width: 1024px) {
+		margin-top: 90px;
+	}
+
+	.page-header {
+		font-size: 26px;
+	}
+
+	.panel-title {
+		font-size: 20px;
+	}
+
+	.form-group {
+		margin-bottom: 0;
+
+		@media screen and (max-width: 1024px) {
+			padding-top: 10px;
+		}
+	}
+
+	.row {
+		margin-bottom: 15px;
+
+		@media screen and (max-width: 1024px) {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.action-btn > div {
+		margin-bottom: 10px;
+	}
+}
+
+#query-prize {
+	table {
+		text-align: center;
+		font-size: 14px;
+
+		th {
+			text-align: center;
+		}
+	}
+
+	.prize-place {
+		font-weight: 700;
+	}
+}

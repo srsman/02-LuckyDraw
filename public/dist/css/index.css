@@ -1,0 +1,68 @@
+a:link,
+a:hover,
+a:active,
+.btn:focus,
+.btn:active:focus,
+.btn-default:active:focus,
+.btn-primary:active:focus,
+.btn-info:active:focus,
+.btn-success:active:focus,
+.btn-warning:active:focus,
+.btn-danger:active:focus {
+  outline: none; }
+
+html,
+body {
+  background-color: #fcfcfc; }
+
+.parent {
+  display: table; }
+
+.middle {
+  display: table-cell;
+  vertical-align: middle; }
+
+#login,
+#changePasswd {
+  margin-top: 120px; }
+
+#set-prize,
+#query-prize {
+  margin-top: 60px; }
+  @media screen and (max-width: 1024px) {
+    #set-prize,
+    #query-prize {
+      margin-top: 90px; } }
+  #set-prize .page-header,
+  #query-prize .page-header {
+    font-size: 26px; }
+  #set-prize .panel-title,
+  #query-prize .panel-title {
+    font-size: 20px; }
+  #set-prize .form-group,
+  #query-prize .form-group {
+    margin-bottom: 0; }
+    @media screen and (max-width: 1024px) {
+      #set-prize .form-group,
+      #query-prize .form-group {
+        padding-top: 10px; } }
+  #set-prize .row,
+  #query-prize .row {
+    margin-bottom: 15px; }
+    @media screen and (max-width: 1024px) {
+      #set-prize .row,
+      #query-prize .row {
+        margin-bottom: 30px; } }
+
+@media screen and (max-width: 768px) {
+  .action-btn > div {
+    margin-bottom: 10px; } }
+
+#query-prize table {
+  text-align: center;
+  font-size: 14px; }
+  #query-prize table th {
+    text-align: center; }
+
+#query-prize .prize-place {
+  font-weight: 700; }
