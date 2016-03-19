@@ -66,3 +66,18 @@ body {
 
 #query-prize .prize-place {
   font-weight: 700; }
+
+#get-prize {
+  width: 100vw;
+  height: 100vh;
+  background: #D9760B url("../img/bg.jpg") 0 100% no-repeat;
+  background-size: cover; }
+  #get-prize .jumbotron {
+    color: #fcfcfc;
+    background-color: rgba(229, 28, 35, 0.3); }
+    #get-prize .jumbotron h1 {
+      color: #fcfcfc; }
+
+#brand-logo {
+  width: 200px;
+  height: auto; }

@@ -31,6 +31,10 @@ Route::get('/admin/changePasswd', function () {
     return view('changePasswd');
 });
 
+Route::get('/getPrize', function () {
+    return view('getPrize');
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
