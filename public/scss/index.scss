@@ -90,3 +90,26 @@ body {
 		font-weight: 700;
 	}
 }
+
+
+// 移动端抽奖页
+#get-prize {
+	width: 100vw;
+	height: 100vh;
+	background: #D9760B url('../img/bg.jpg') 0 100% no-repeat;
+	background-size: cover;
+
+	.jumbotron {
+		color: $bg-color;
+		background-color: rgba(229, 28, 35, 0.3);
+
+		h1 {
+			color: $bg-color;
+		}
+	}
+}
+
+#brand-logo {
+	width: 200px;
+	height: auto;
+}
