@@ -6,7 +6,10 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "overtrue/laravel-wechat": "~3.0",
+        "dflydev/apache-mime-types": "^1.0",
+        "zgldh/laravel-upload-manager": "^0.4.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

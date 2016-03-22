@@ -1,0 +1,3 @@
+2016.3.21
+文件上传使用了第三方插件：
+https://github.com/zgldh/laravel-upload-manager

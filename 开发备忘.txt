@@ -1,0 +1,2 @@
+1,要实现读取文件，html的form标签必须加入属性 enctype="multipart/form-data"
+2，
