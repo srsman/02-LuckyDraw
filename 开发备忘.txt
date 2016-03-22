@@ -1,2 +1,2 @@
 1,要实现读取文件，html的form标签必须加入属性 enctype="multipart/form-data"
-2，
+2，开启php.ini里的php_fileinfo.dll（安装Captcha验证码组件需要）
