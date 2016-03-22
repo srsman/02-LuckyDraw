@@ -28,17 +28,17 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">奖项设置 <span class="sr-only">(current)</span></a></li>
+                <li class="active"><a href="setPrize">奖项设置 <span class="sr-only">(current)</span></a></li>
                 <li><a href="#">中奖查询</a></li>
               </ul>
 
               {{-- 判断用户是否为登录状态。登录状态下，才显示此区块 --}}
-              {{-- @if (login) --}}
+              @if(Session::has('name'))
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="#">修改密码</a></li>
-                  <li><a href="#">退出</a></li>
+                  <li><a href="changePasswd">修改密码</a></li>
+                  <li><a href="logout">退出</a></li>
                 </ul>
-              {{-- @endif --}}
+               @endif 
 
             </div>
           </div>
