@@ -9,7 +9,7 @@
     <div class="row">
       <div id="set-prize" class="col-md-10 col-md-offset-1">
         <div class="page-header">
-          <h2 class="h3">设置奖项{{$links.0.id}}</h2>
+          <h2 class="h3">设置奖项</h2>
         </div>
 
         {{-- 链接类奖品 --}}
