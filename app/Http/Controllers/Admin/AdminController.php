@@ -62,6 +62,7 @@ class AdminController extends Controller
             $data['prize'] = $input['selectPrizePlaces'.$i];
             $data['name'] = $input['inputPrizeName'.$i];
             $data['weight'] = $input['inputNumber'.$i];
+            $data['prize_url'] = $input['inputURL'.$i];
             $url['id'.$i] = SettingLink::saveData($data);
             $i++;
         }
@@ -72,8 +73,9 @@ class AdminController extends Controller
         $file = $request->file('inputImg'.$j);
         print_r($request->file());
         while (!empty($file)) {
-           $fileName = str_random(20).'.'.$request->file('inputImg'.$j)->getClientOriginalExtension();
+           /*$fileName = str_random(20).'.'.$request->file('inputImg'.$j)->getClientOriginalExtension();*/
            //sprint_r($fileName);
+           $fileName = $request->file('inputImg'.$j)->getClientOriginalName();
            $fileInfo = $request->file('inputImg'.$j)->move($destinationPath, $fileName);
            SettingLink::saveUploadImg($fileName, $url['id'.$j]);
            $j++;
@@ -106,8 +108,9 @@ class AdminController extends Controller
         $file = $request->file('inputImg'.$j);
         //print_r($request->file());
         while (!empty($file)) {
-           $fileName = str_random(20).'.'.$request->file('inputImg'.$j)->getClientOriginalExtension();
+           /*$fileName = str_random(20).'.'.$request->file('inputImg'.$j)->getClientOriginalExtension();*/
            //sprint_r($fileName);
+           $fileName = $request->file('inputImg'.$j)->getClientOriginalName();
            $fileInfo = $request->file('inputImg'.$j)->move($destinationPath, $fileName);
            SettingCode::saveUploadImg($fileName, $url['id'.$j]);
            $j++;
@@ -120,7 +123,8 @@ class AdminController extends Controller
         $file = $request->file('inputExcel'.$k);
         print_r($request->file());
         while (!empty($file)) {
-           $fileName = str_random(20).'.'.$request->file('inputExcel'.$k)->getClientOriginalExtension();
+           /*$fileName = str_random(20).'.'.$request->file('inputExcel'.$k)->getClientOriginalExtension();*/
+           $fileName = $request->file('inputExcel'.$k)->getClientOriginalName();
            //sprint_r($fileName);
            $fileInfo = $request->file('inputExcel'.$k)->move($destinationPath2, $fileName);
            SettingCode::saveUploadExcel($fileName, $url['id'.$k]);
@@ -153,8 +157,10 @@ class AdminController extends Controller
         $j = 1;
         $file = $request->file('inputImg'.$j);
         while (!empty($file)) {
-           $fileName = str_random(20).'.'.$request->file('inputImg'.$j)->getClientOriginalExtension();
+           /*$fileName = str_random(20).'.'.$request->file('inputImg'.$j)->getClientOriginalExtension();*/
+
            //sprint_r($fileName);
+           $fileName = $request->file('inputImg'.$j)->getClientOriginalName();
            $fileInfo = $request->file('inputImg'.$j)->move($destinationPath, $fileName);
            SettingThing::saveUploadImg($fileName, $url['id'.$j]);
            $j++;

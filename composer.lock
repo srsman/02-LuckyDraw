@@ -287,6 +287,7 @@
             "time": "2015-11-06 14:35:42"
         },
         {
+<<<<<<< HEAD
             "name": "guzzlehttp/guzzle",
             "version": "6.1.1",
             "source": {
@@ -364,6 +365,27 @@
             },
             "require": {
                 "php": ">=5.5.0"
+=======
+            "name": "guzzlehttp/psr7",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2e89629ff057ebb49492ba08e6995d3a6a80021b",
+                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+>>>>>>> origin/lin_admin
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
@@ -376,7 +398,11 @@
             },
             "autoload": {
                 "psr-4": {
+<<<<<<< HEAD
                     "GuzzleHttp\\Promise\\": "src/"
+=======
+                    "GuzzleHttp\\Psr7\\": "src/"
+>>>>>>> origin/lin_admin
                 },
                 "files": [
                     "src/functions_include.php"
@@ -393,6 +419,7 @@
                     "homepage": "https://github.com/mtdowling"
                 }
             ],
+<<<<<<< HEAD
             "description": "Guzzle promises library",
             "keywords": [
                 "promise"
@@ -422,20 +449,67 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0"
+=======
+            "description": "PSR-7 message implementation",
+            "keywords": [
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "time": "2016-02-18 21:54:00"
+        },
+        {
+            "name": "intervention/image",
+            "version": "2.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/image.git",
+                "reference": "e368d262887dbb2fdfaf710880571ede51e9c0e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/e368d262887dbb2fdfaf710880571ede51e9c0e6",
+                "reference": "e368d262887dbb2fdfaf710880571ede51e9c0e6",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "guzzlehttp/psr7": "~1.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~0.9.2",
+                "phpunit/phpunit": "3.*"
+            },
+            "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
+                "intervention/imagecache": "Caching extension for the Intervention Image library"
+>>>>>>> origin/lin_admin
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-master": "1.0-dev"
+=======
+                    "dev-master": "2.3-dev"
+>>>>>>> origin/lin_admin
                 }
             },
             "autoload": {
                 "psr-4": {
+<<<<<<< HEAD
                     "GuzzleHttp\\Psr7\\": "src/"
                 },
                 "files": [
                     "src/functions_include.php"
                 ]
+=======
+                    "Intervention\\Image\\": "src/Intervention/Image"
+                }
+>>>>>>> origin/lin_admin
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -443,6 +517,7 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
@@ -456,6 +531,24 @@
                 "uri"
             ],
             "time": "2016-02-18 21:54:00"
+=======
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.net",
+                    "homepage": "http://olivervogel.net/"
+                }
+            ],
+            "description": "Image handling and manipulation library with support for Laravel integration",
+            "homepage": "http://image.intervention.io/",
+            "keywords": [
+                "gd",
+                "image",
+                "imagick",
+                "laravel",
+                "thumbnail",
+                "watermark"
+            ],
+            "time": "2016-02-26 18:18:19"
+>>>>>>> origin/lin_admin
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -812,6 +905,63 @@
                 "storage"
             ],
             "time": "2016-02-19 15:35:38"
+        },
+        {
+            "name": "mews/captcha",
+            "version": "2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mewebstudio/captcha.git",
+                "reference": "15d3ddc92c99d4e2cc5aa68afa701c73ad52d75b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mewebstudio/captcha/zipball/15d3ddc92c99d4e2cc5aa68afa701c73ad52d75b",
+                "reference": "15d3ddc92c99d4e2cc5aa68afa701c73ad52d75b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "illuminate/config": "~5.0",
+                "illuminate/filesystem": "~5.0",
+                "illuminate/hashing": "~5.0",
+                "illuminate/support": "~5.0",
+                "intervention/image": "~2.2",
+                "php": ">=5.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "Mews\\Captcha\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muharrem ERİN",
+                    "email": "me@mewebstudio.com",
+                    "homepage": "https://github.com/mewebstudio",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 Captcha Package",
+            "homepage": "https://github.com/mewebstudio/captcha",
+            "keywords": [
+                "captcha",
+                "laravel5 Captcha",
+                "laravel5 Security"
+            ],
+            "time": "2016-03-15 12:59:02"
         },
         {
             "name": "monolog/monolog",
@@ -1230,6 +1380,7 @@
             "time": "2016-02-29 17:25:04"
         },
         {
+<<<<<<< HEAD
             "name": "pimple/pimple",
             "version": "v3.0.2",
             "source": {

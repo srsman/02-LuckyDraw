@@ -16,6 +16,7 @@ class SettingCode extends Model
             'prize'   => $data['prize'],
             'name'   => $data['name'],
             'weight'   => $data['weight'],
+            'prize_url'   => $data['prize_url'],
           ]);
         return $SettingCode['id'];
     }

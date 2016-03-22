@@ -16,6 +16,7 @@ class SettingLink extends Model
             'prize'   => $data['prize'],
             'name'   => $data['name'],
             'weight'   => $data['weight'],
+            'prize_url'   => $data['prize_url'],
           ]);
         return $SettingLink['id'];
     }
