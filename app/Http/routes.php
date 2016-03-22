@@ -24,11 +24,11 @@ Route::get('/getPrize', function () {
 
 Route::get('/wechat-test', 'Wechat\WechatController@test');
 
-Route::post('/admin/setPrize/thing', 'Admin\AdminController@setThing');
+Route::post('admin/setPrize/thing', 'Admin\AdminController@setThing');
 
-Route::post('/admin/setPrize/link', 'Admin\AdminController@setLink');
+Route::post('admin/setPrize/link', 'Admin\AdminController@setLink');
 
-Route::post('/admin/setPrize/code', 'Admin\AdminController@setCode');
+Route::post('admin/setPrize/code', 'Admin\AdminController@setCode');
 
 /*
 |--------------------------------------------------------------------------
