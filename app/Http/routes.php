@@ -8,32 +8,25 @@
 | Here is where you will register all of the routes in an application.
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
-|
+|['middleware' => 'login'
 */
-
-Route::get('/', function () {
+//登录
+Route::get('/admin/login', function () {
     return view('login');
 });
 
-Route::get('/admin', function () {
-    return view('setPrize');
-});
+Route::post('/admin/login','AdminController@login');
 
-Route::get('/admin/setPrize', function () {
-    return view('setPrize');
-});
+Route::get('/getPrize', 'IndexController@index');
 
-Route::get('/admin/queryPrize', function () {
-    return view('queryPrize');
-});
 
-Route::get('/admin/changePasswd', function () {
-    return view('changePasswd');
-});
+Route::get('/wechat-test', 'Wechat\WechatController@test');
 
-Route::get('/getPrize', function () {
-    return view('getPrize');
-});
+Route::post('admin/setPrize/thing', 'Admin\AdminController@setThing');
+
+Route::post('admin/setPrize/link', 'Admin\AdminController@setLink');
+
+Route::post('admin/setPrize/code', 'Admin\AdminController@setCode');
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +39,20 @@ Route::get('/getPrize', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+Route::group(['middleware' => 'login'], function()
+{
+    Route::get('admin/setPrize', 'Admin\AdminController@index');
+
+    Route::get('admin/queryPrize', 'Admin\AdminController@queryAward');
+    //修改密码
+    Route::get('/admin/changePasswd', function () {
+        return view('changePasswd');
+    });
+    Route::post('/admin/changePasswd','AdminController@changePasswd');
+    //退出
+
+    Route::get('admin/logout', 'AdminController@logout');
+    
 });
+
+Route::any('/wechat', 'WechatController@serve');
