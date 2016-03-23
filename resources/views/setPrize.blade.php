@@ -12,6 +12,54 @@
           <h2 class="h3">设置奖项</h2>
         </div>
 
+        <!-- 设置概率 -->
+        <div id="set-Probability" class="panel panel-warning">
+          <div class="panel-heading">
+            <h2 class="panel-title">设置三类奖品的中奖概率</h2>
+          </div>
+
+          <div class="panel-body">
+            <form class="form-vertical" action="" method="POST" enctype="multipart/form-data">
+
+              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+              <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 col-md-12 col-md-offset-0">
+
+                  <div class="form-group">
+                    <div class="col-sm-6 col-md-2">
+                      <label for="inputProbability" class="control-label">链接类奖品中奖概率：</label>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <input type="number" class="form-control" id="inputProbability" placeholder="中奖概率">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-6 col-md-2">
+                      <label for="inputProbability" class="control-label">链接类奖品中奖概率：</label>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <input type="number" class="form-control" id="inputProbability" placeholder="中奖概率">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="col-sm-6 col-md-2">
+                      <label for="inputProbability" class="control-label">链接类奖品中奖概率：</label>
+                    </div>
+                    <div class="col-sm-6 col-md-2">
+                      <input type="number" class="form-control" id="inputProbability" placeholder="中奖概率">
+                    </div>
+                  </div>
+
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
         {{-- 链接类奖品 --}}
         <div class="panel panel-primary">
           <div class="panel-heading">
@@ -102,9 +150,7 @@
                   <div class="col-sm-2">
                     <button class="btn btn-lg btn-primary">+ 增加奖品</button>
                   </div>
-                  <div class="col-sm-4">
-                    <input type="number" class="form-control" id="inputProbability" placeholder="请输入此类奖品的中奖概率" required>
-                  </div>
+
                   <div class="col-sm-4 col-md-3 pull-right" align="center">
                     <button type="reset" class="btn btn-lg btn-default">重置</button>
                     <button type="submit" class="btn btn-lg btn-primary">保存</button>
@@ -217,9 +263,7 @@
                   <div class="col-sm-2">
                     <button class="btn btn-lg btn-success">+ 增加奖品</button>
                   </div>
-                  <div class="col-sm-4">
-                    <input type="number" class="form-control" id="inputProbability" placeholder="请输入此类奖品的中奖概率">
-                  </div>
+
                   <div class="col-sm-4 col-md-3 pull-right" align="center">
                     <button type="reset" class="btn btn-lg btn-default">重置</button>
                     <button type="submit" class="btn btn-lg btn-success">保存</button>
@@ -324,9 +368,7 @@
                   <div class="col-sm-2">
                     <button class="btn btn-lg btn-info">+ 增加奖品</button>
                   </div>
-                  <div class="col-sm-4">
-                    <input type="number" class="form-control" id="inputProbability" placeholder="请输入此类奖品的中奖概率" required>
-                  </div>
+
                   <div class="col-sm-4 col-md-3 pull-right" align="center">
                     <button type="reset" class="btn btn-lg btn-default">重置</button>
                     <button type="submit" class="btn btn-lg btn-info">保存</button>
