@@ -17,9 +17,7 @@ Route::get('/admin/login', function () {
 
 Route::post('/admin/login','AdminController@login');
 
-Route::get('/getPrize', function () {
-	    return view('getPrize');
-	});
+Route::get('/getPrize', 'IndexController@index');
 
 
 Route::get('/wechat-test', 'Wechat\WechatController@test');
