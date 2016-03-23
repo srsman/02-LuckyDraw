@@ -37,7 +37,7 @@
 
                   <div class="form-group">
                     <div class="col-sm-6 col-md-2">
-                      <label for="inputProbability" class="control-label">链接类奖品中奖概率：</label>
+                      <label for="inputProbability" class="control-label">兑换码类奖品中奖概率：</label>
                     </div>
                     <div class="col-sm-6 col-md-2">
                       <input type="number" class="form-control" id="inputProbability" placeholder="中奖概率">
@@ -46,7 +46,7 @@
 
                   <div class="form-group">
                     <div class="col-sm-6 col-md-2">
-                      <label for="inputProbability" class="control-label">链接类奖品中奖概率：</label>
+                      <label for="inputProbability" class="control-label">实物类奖品中奖概率：</label>
                     </div>
                     <div class="col-sm-6 col-md-2">
                       <input type="number" class="form-control" id="inputProbability" placeholder="中奖概率">
