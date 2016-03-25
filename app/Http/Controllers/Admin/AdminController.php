@@ -26,18 +26,16 @@ class AdminController extends Controller
     }
 
     public function queryAward(){
-        $links =  AwardUsers::where('award_type','link')->get()->toArray();
-        $codes =  AwardUsers::where('award_type','code')->get()->toArray();
-        $things =  AwardUsers::where('award_type','thing')->get()->toArray();
-        echo '<br/>';
-        echo '<br/>';
-        echo '<br/>';
+        $links =  AwardUsers::where('award_type','link')->orderBy('award_prize')->get()->toArray();
+        $codes =  AwardUsers::where('award_type','code')->orderBy('award_prize')->get()->toArray();
+        $things =  AwardUsers::where('award_type','thing')->orderBy('award_prize')->get()->toArray();
+        /*echo '<br/>';
         echo '<br/>';
         echo '<br/>';
         print_r($links);
         print_r($codes);
-        print_r($things);
-        return view('queryPrize');
+        print_r($things);*/
+        return view('queryPrize',['links' => $links, 'codes' => $codes, 'things' => $things]);
     }
 
     public function setLink(Request $request){

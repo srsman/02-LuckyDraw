@@ -3,18 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 use App\Category;       //使用分类表
 use App\SettingLink;  	//使用链接表
 use App\SettingCode;	//使用领取码表
 use App\SettingThing;	//使用实物表
-use App\Code;      		//使用领取码子表
+use App\Code;           //使用领取码子表
+use App\AwardUsers;      		//使用中奖信息填写表
 
 class IndexController extends Controller
 {
   //首页，抽奖页面
-	public  function index(){
+	public function index(){
   //抽奖算法 
 	//抽取奖品的类别
     $award_rate=Category::all()->toArray();
@@ -85,16 +87,26 @@ class IndexController extends Controller
     //返回奖品信息到视图
 
     return view('getPrize')->with('luckdraw',$luckdraw);
-   
-    
-    
-
-
- 
-
-
 
 	}
+
+    public function getWechatUserInfo(Request $request){
+        //打开网页获取微信用户信息
+    }
+
+    public function fillInfo(Request $request){
+        //此处仅保存更新存储用户中奖信息（非创建，应在打开页面时就创建用户数据）
+        $input = $request->input(); 
+        $data = array();
+        $data['inputName'] = $input['inputName'];
+        $data['inputPhone'] = $input['inputPhone'];
+        $data['inputAddress'] = $input['inputAddress'];
+        //openid应该使用全局变量
+        //$newData = serialize($data);
+        print_r($newData);
+        //return $input;
+        //return view('getPrize')
+    }
   	
 
 

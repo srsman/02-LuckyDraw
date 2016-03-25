@@ -32,41 +32,22 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($links as $key=>$link) 
+                    @if ($link['award_prize']==='一等奖')
                     <tr class="success">
-                      <td>1</td>
-                      <td class="prize-place">一等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
-                    <tr class="success">
-                      <td>2</td>
-                      <td class="prize-place">一等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
+                    @elseif ($link['award_prize']==='二等奖')
                     <tr class="warning">
-                      <td>3</td>
-                      <td class="prize-place">二等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
+                    @else
                     <tr class="danger">
-                      <td>4</td>
-                      <td class="prize-place">三等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
+                    @endif
+                      <td>1</td>
+                      <td class="prize-place">{{$link['award_prize']}}</td>
+                      <td>{{$link['award_content']}}</td>
+                      <td>{{$link['award_realname']}}</td>
+                      <td>{{$link['award_phone']}}</td>
+                      <td>{{$link['award_address']}}</td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
 
@@ -95,41 +76,22 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($codes as $key=>$code) 
+                    @if ($code['award_prize']==='一等奖')
                     <tr class="success">
-                      <td>1</td>
-                      <td class="prize-place">一等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
-                    <tr class="success">
-                      <td>2</td>
-                      <td class="prize-place">一等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
+                    @elseif ($code['award_prize']==='二等奖')
                     <tr class="warning">
-                      <td>3</td>
-                      <td class="prize-place">二等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
+                    @else
                     <tr class="danger">
-                      <td>4</td>
-                      <td class="prize-place">三等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
+                    @endif
+                      <td>1</td>
+                      <td class="prize-place">{{$code['award_prize']}}</td>
+                      <td>{{$code['award_content']}}</td>
+                      <td>{{$code['award_realname']}}</td>
+                      <td>{{$code['award_phone']}}</td>
+                      <td>{{$code['award_address']}}</td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
 
@@ -159,41 +121,22 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($things as $key=>$thing) 
+                    @if ($thing['award_prize']==='一等奖')
                     <tr class="success">
-                      <td>1</td>
-                      <td class="prize-place">一等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
-                    <tr class="success">
-                      <td>2</td>
-                      <td class="prize-place">一等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
+                    @elseif ($thing['award_prize']==='二等奖')
                     <tr class="warning">
-                      <td>3</td>
-                      <td class="prize-place">二等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
-                    </tr>
-
+                    @else
                     <tr class="danger">
-                      <td>4</td>
-                      <td class="prize-place">三等奖</td>
-                      <td>SKII 眼霜</td>
-                      <td>小红</td>
-                      <td>13800138000</td>
-                      <td>广东省惠州市惠城区演达大道 46 号惠州学院</td>
+                    @endif
+                      <td>1</td>
+                      <td class="prize-place">{{$thing['award_prize']}}</td>
+                      <td>{{$thing['award_content']}}</td>
+                      <td>{{$thing['award_realname']}}</td>
+                      <td>{{$thing['award_phone']}}</td>
+                      <td>{{$thing['award_address']}}</td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
 

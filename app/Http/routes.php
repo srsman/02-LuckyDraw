@@ -15,7 +15,13 @@ Route::get('/admin/login', function () {
     return view('login');
 });
 
+Route::get('/v1/getPrize', function () {
+    return view('getPrize');
+});
+
 Route::post('/admin/login','AdminController@login');
+
+Route::post('/v1/fillInfo','IndexController@fillInfo');
 
 Route::get('/getPrize', 'IndexController@index');
 
