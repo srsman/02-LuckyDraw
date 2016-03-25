@@ -23,7 +23,11 @@ Route::post('/admin/login','AdminController@login');
 
 Route::post('/v1/fillInfo','IndexController@fillInfo');
 
-Route::get('/getPrize', 'IndexController@index');
+/*Route::get('/getPrize', 'IndexController@index');*/
+Route::get('/getPrize/CUID={id}', 'IndexController@index');
+
+ Route::get('/getPrize/CUID={cuid}', 'IndexController@index');
+
 
 
 Route::get('/wechat-test', 'Wechat\WechatController@test');
