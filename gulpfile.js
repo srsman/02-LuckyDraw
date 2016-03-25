@@ -10,26 +10,21 @@ var elixir = require('laravel-elixir');
 // 开发阶段
 gulp.task("dev", ["serve"]);
 
-// 开发阶段：编译 Scss
-gulp.task('dev:css', function () {
-  return gulp.src('./public/scss/index.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({
-            browsers: ['last 4 versions', 'not ie <= 8'],
-            cascade: false
-        }))
-    .pipe(gulp.dest('./public/css/'))
-    .pipe(gulp.dest('./public/dist/css/'));
-});
-
 // 开发阶段：浏览器自动刷新
-gulp.task('serve', ['dev:sass'], function() {
+gulp.task('serve', ['dev:sass', 'dev:js'], function() {
     browserSync.init({
-        proxy: "http://localhost/Pro2-LuckyDraw/public/admin"
+        proxy: "http://localhost/Pro2-LuckyDraw/public/admin/login"
     });
     gulp.watch("./public/scss/**/*.scss", ['dev:sass']);
+    gulp.watch("./public/js/**/*.js", ['dev:js']);
     gulp.watch("./resources/views/**/*.blade.php").on('change', browserSync.reload);
-    gulp.watch("./public/js/**/*.js").on('change', browserSync.reload);
+});
+
+// 开发阶段：复制 JS
+gulp.task('dev:js', function () {
+  return gulp.src('./public/js/**/*.js')
+      .pipe(gulp.dest('./public/dist/js/'))
+      .pipe(browserSync.stream());
 });
 
 // 编译 Sass 并把 CSS 注入浏览器
@@ -85,12 +80,10 @@ gulp.task('build:img', function () {
 gulp.task('build:JS', function () {
   gulp.src('./public/js/**/*.js')
       .pipe(uglify())
-      .pipe(gulp.dest('./dist/js/'));
+      .pipe(gulp.dest('./public/dist/js/'));
 });
 
 
 
 // 默认任务
-gulp.task('default', ['dev'], function () {
-  console.log("正在监听文件变动……");
-})
+gulp.task('default', ['dev']);
