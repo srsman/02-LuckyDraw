@@ -67,6 +67,11 @@ body {
 #query-prize .prize-place {
   font-weight: 700; }
 
+#query-search {
+  position: absolute;
+  right: 20px;
+  top: 30px; }
+
 #get-prize {
   width: 100vw;
   height: 100vh;
