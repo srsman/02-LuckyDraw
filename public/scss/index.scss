@@ -21,6 +21,7 @@ a:active,
 html,
 body {
 	background-color: $bg-color;
+	font-family: "San Francisco", "Helvetica Neue", "Lucida Grande", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Microhei", "XinGothic CiticPress", "Microsoft Yahei", Arial, sans-serif;
 }
 
 .parent {
@@ -113,22 +114,112 @@ body {
 
 // 移动端抽奖页
 #get-prize {
+	position: relative;
 	width: 100vw;
 	height: 100vh;
-	background: #D9760B url('../img/bg.jpg') 0 100% no-repeat;
+	background: #fdedd4 url('../img/bg-final.png') 0 100% no-repeat;
 	background-size: cover;
 
-	.jumbotron {
-		color: $bg-color;
-		background-color: rgba(229, 28, 35, 0.3);
-
-		h1 {
-			color: $bg-color;
-		}
+	@media screen and (max-height: 480px) {
+		background-position: center -10px;
 	}
 }
 
 #brand-logo {
-	width: 200px;
+	margin-top: 10px;
+	width: 120px;
 	height: auto;
+}
+
+.rule {
+	margin-right: 10px;
+	margin-top: 20px;
+	font-size: 16px;
+	color: #999;
+}
+
+.prize-info,
+.other-prizes {
+	padding: 8px;
+	text-align: center;
+	border-radius: 1.4em;
+	background-color: rgba(229, 60, 29, 0.4);
+}
+
+.prize-info {
+	margin-top: 7rem;
+
+	h5 {
+		color: #333;
+	}
+
+	img.prize {
+		height: auto;
+		max-height: 80px;
+		text-align: center;
+	}
+
+	@media screen and (min-height: 481px) {
+		margin-top: 9rem;
+	}
+
+	@media screen and (min-height: 540px) {
+		margin-top: 11rem;
+	}
+
+	@media screen and (min-height: 668px) {
+		margin-top: 13rem;
+	}
+}
+
+.other-prizes {
+	margin-top: 0.3em;
+
+	h6 {
+		text-align: left;
+		color: #f22f2f;
+		font-weight: 700;
+	}
+
+	ul {
+		list-style-type: none;
+		-webkit-padding-start: 0;
+	}
+}
+
+.get-btn {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.partner {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	text-align: center;
+
+	@media screen and (min-height: 481px) {
+		color: #f1f1f1;
+	}
+
+	@media screen and (min-height: 600px) {
+		position: absolute;
+		left: 0;
+		bottom: -120px;
+	}
+
+	@media screen and (min-height: 736px) {
+		position: absolute;
+		bottom: -170px;
+	}
+
+	@media screen and (min-height: 773px) {
+		position: absolute;
+		bottom: -200px;
+	}
+
+	img {
+		width: 40px;
+		height: auto;
+		margin-right: 10px;
+	}
 }
