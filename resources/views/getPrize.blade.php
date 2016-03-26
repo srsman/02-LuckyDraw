@@ -27,37 +27,41 @@
               <div class="modal-body">
 
                 {{-- 领奖表单 --}}
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="./fillInfo" method="POST" enctype="multipart/form-data">
                   <fieldset>
                     <div class="form-group">
                       <label for="inputName" class="col-lg-2 control-label">姓名</label>
                       <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputName" placeholder="请填写你的姓名">
+                        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="请填写你的姓名">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputPhone" class="col-lg-2 control-label">手机号</label>
                       <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputPhone" placeholder="请填写你的手机号码">
+                        <input type="password" class="form-control" id="inputPhone" name="inputPhone"  placeholder="请填写你的手机号码">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputAddress" class="col-lg-2 control-label">住址</label>
                       <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputAddress" placeholder="请填写领取奖品的地址">
+                        <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="请填写领取奖品的地址">
                       </div>
                     </div>
                   </fieldset>
+
+                  <div class="modal-footer">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="submit" class="btn btn-primary">确定</button>
+                  </div>
+
                 </form>
 
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">确定</button>
-              </div>
+
             </div>
           </div>
-        </div>
+        </div><!-- 模态框结束 -->
 
       </div>
     </div>
