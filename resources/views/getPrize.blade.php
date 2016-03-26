@@ -58,10 +58,10 @@
                 </form>
 
               </div>
-              
+
             </div>
           </div>
-        </div>
+        </div><!-- 模态框结束 -->
 
       </div>
     </div>
