@@ -1,15 +1,3 @@
-{{-- 链接类奖品 --}}
-<div class="panel panel-primary">
-<div class="panel-heading">
-<h2 class="panel-title">链接类奖品</h2>
-</div>
-
-<div class="panel-body">
-<form class="form-vertical" action="./setPrize/link" method="POST" enctype="multipart/form-data">
-
-<input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-@foreach ($links as $key=>$link)
 <div class="link-prize row">
   <div class="col-xs-12">
     <input type="hidden" name="data_id{{$key+1}}" value="{{$link['id']}}">

@@ -58,13 +58,19 @@ body {
   .action-btn > div {
     margin-bottom: 10px; } }
 
-#query-prize table {
+#set-prize tr td:last-child {
+  width: 120px; }
+
+#query-prize table,
+#set-prize table {
   text-align: center;
   font-size: 14px; }
-  #query-prize table th {
+  #query-prize table th,
+  #set-prize table th {
     text-align: center; }
 
-#query-prize .prize-place {
+#query-prize .prize-place,
+#set-prize .prize-place {
   font-weight: 700; }
 
 #query-search {

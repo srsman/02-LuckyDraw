@@ -77,8 +77,15 @@ body {
 }
 
 
+#set-prize {
+	tr td:last-child {
+		width: 120px;
+	}
+}
 
-#query-prize {
+
+#query-prize,
+#set-prize {
 	table {
 		text-align: center;
 		font-size: 14px;
