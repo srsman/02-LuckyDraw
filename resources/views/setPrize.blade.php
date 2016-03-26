@@ -113,6 +113,12 @@
             </div><!-- 链接类表格结束 -->
 
           </div>{{-- panel-body --}}
+
+          {{-- panel-footer --}}
+          <div class="panel-footer">
+            <a href="" class="btn btn-normal btn-primary" data-toggle="modal" data-target="#add-link-prize">+ 新增奖项</a>
+          </div>
+          {{-- panel-footer --}}
         </div>{{-- panel --}}
 
         {{-- 兑换码类奖品 --}}
@@ -160,6 +166,12 @@
             </div><!-- 兑换码类表格结束 -->
 
           </div>{{-- panel-body --}}
+
+          {{-- panel-footer --}}
+          <div class="panel-footer">
+            <a href="" class="btn btn-normal btn-success" data-toggle="modal" data-target="#add-code-prize">+ 新增奖项</a>
+          </div>
+          {{-- panel-footer --}}
         </div>{{-- panel --}}
 
         {{-- 实物类奖品 --}}
@@ -205,6 +217,12 @@
             </div><!-- 实物类表格 -->
 
           </div>{{-- panel-body --}}
+
+          {{-- panel-footer --}}
+          <div class="panel-footer">
+            <a href="" class="btn btn-normal btn-info" data-toggle="modal" data-target="#add-real-prize">+ 新增奖项</a>
+          </div>
+          {{-- panel-footer --}}
         </div>{{-- panel --}}
 
 
@@ -216,7 +234,7 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">填写链接类奖项信息</h4>
+                <h4 class="modal-title">修改链接类奖项信息</h4>
               </div>
 
               {{-- 领奖表单 --}}
@@ -284,7 +302,224 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">填写兑换码类奖项信息</h4>
+                <h4 class="modal-title">修改兑换码类奖项信息</h4>
+              </div>
+
+              {{-- 领奖表单 --}}
+              <form class="form-vertical">
+                <div class="modal-body">
+                  <fieldset>
+                    {{-- 奖项 --}}
+                    <div class="form-group">
+                      <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
+                      <div class="col-lg-9">
+                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                          <option selected>一等奖</option>
+                          <option>二等奖</option>
+                          <option>三等奖</option>
+                        </select>
+                      </div>
+                    </div>
+                    {{-- 奖品名称 --}}
+                    <div class="form-group">
+                      <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
+                      <div class="col-lg-9">
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                      </div>
+                    </div>
+                    {{-- 兑奖链接 --}}
+                    <div class="form-group">
+                      <label for="inputURL" class="col-lg-3 control-label">兑奖链接</label>
+                      <div class="col-lg-9">
+                        <input type="url" class="form-control" id="inputURL" placeholder="请输入兑奖链接" required>
+                      </div>
+                    </div>
+                    {{-- 奖品图片 --}}
+                    <div class="form-group">
+                      <label for="inputImg" class="col-lg-3 control-label">上传奖品图片</label>
+                      <div class="col-lg-9">
+                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" required>
+                      </div>
+                    </div>
+                    {{-- 上传Excel 兑换码 --}}
+                    {{-- <div class="form-group">
+                      <label for="inputCode" class="col-lg-3 control-label">上传Excel</label>
+                      <div class="col-lg-9">
+                        <input type="file" class="form-control" id="inputExcel" name="inputExcel" required>
+                      </div>
+                    </div> --}}
+                    {{-- 权重 --}}
+                    <div class="form-group">
+                      <label for="inputNumber" class="col-lg-3 control-label">权重</label>
+                      <div class="col-lg-9">
+                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                      </div>
+                    </div>
+
+                  </fieldset>
+                </div>
+                {{-- 操作按钮 --}}
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-success">保存</button>
+                </div>
+              </form>
+              {{-- 领奖表单结束 --}}
+
+            </div>
+          </div>
+        </div>
+        <!-- 兑换码类奖品模态框结束 -->
+
+        <!-- 实物类奖品模态框 -->
+        <div id="real-prize" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">修改实物类奖项信息</h4>
+              </div>
+
+              {{-- 领奖表单 --}}
+              <form class="form-vertical">
+                <div class="modal-body">
+                  <fieldset>
+                    {{-- 奖项 --}}
+                    <div class="form-group">
+                      <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
+                      <div class="col-lg-9">
+                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                          <option selected>一等奖</option>
+                          <option>二等奖</option>
+                          <option>三等奖</option>
+                        </select>
+                      </div>
+                    </div>
+                    {{-- 奖品名称 --}}
+                    <div class="form-group">
+                      <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
+                      <div class="col-lg-9">
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                      </div>
+                    </div>
+                    {{-- 奖品图片 --}}
+                    <div class="form-group">
+                      <label for="inputImg" class="col-lg-3 control-label">上传奖品图片</label>
+                      <div class="col-lg-9">
+                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" required>
+                      </div>
+                    </div>
+                    {{-- 奖品数量 --}}
+                    <div class="form-group">
+                      <label for="inputNumber" class="col-lg-3 control-label">奖品数量</label>
+                      <div class="col-lg-9">
+                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" value="" placeholder="请填写奖品数量" required>
+                      </div>
+                    </div>
+                    {{-- 权重 --}}
+                    <div class="form-group">
+                      <label for="inputNumber" class="col-lg-3 control-label">权重</label>
+                      <div class="col-lg-9">
+                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                      </div>
+                    </div>
+
+                  </fieldset>
+
+                  {{-- 操作按钮 --}}
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info">保存</button>
+                  </div>
+                </div>
+              </form>
+              {{-- 领奖表单结束 --}}
+
+            </div>
+          </div>
+        </div>
+        <!-- 实物类奖品模态框结束 -->
+
+        <!-- 模态框集合结束 -->
+
+
+
+        {{-- 新增奖项按钮模态框 --}}
+        <!-- 链接类奖品模态框 -->
+        <div id="add-link-prize" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">新增链接类奖项</h4>
+              </div>
+
+              {{-- 领奖表单 --}}
+              <form class="form-vertical">
+                <div class="modal-body">
+                  <fieldset>
+
+                    {{-- 奖项 --}}
+                    <div class="form-group">
+                      <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
+                      <div class="col-lg-9">
+                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                          <option selected>一等奖</option>
+                          <option>二等奖</option>
+                          <option>三等奖</option>
+                        </select>
+                      </div>
+                    </div>
+                    {{-- 奖品名称 --}}
+                    <div class="form-group">
+                      <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
+                      <div class="col-lg-9">
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                      </div>
+                    </div>
+                    {{-- 兑奖链接 --}}
+                    <div class="form-group">
+                      <label for="inputURL" class="col-lg-3 control-label">兑奖链接</label>
+                      <div class="col-lg-9">
+                        <input type="url" class="form-control" id="inputURL" placeholder="请输入兑奖链接" required>
+                      </div>
+                    </div>
+                    {{-- 奖品图片 --}}
+                    <div class="form-group">
+                      <label for="inputImg" class="col-lg-3 control-label">上传奖品图片</label>
+                      <div class="col-lg-9">
+                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" required>
+                      </div>
+                    </div>
+                    {{-- 权重 --}}
+                    <div class="form-group">
+                      <label for="inputNumber" class="col-lg-3 control-label">权重</label>
+                      <div class="col-lg-9">
+                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                      </div>
+                    </div>
+
+                  </fieldset>
+                </div>
+                {{-- 操作按钮 --}}
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                  <button type="button" class="btn btn-primary">保存</button>
+                </div>
+              </form>
+              {{-- 领奖表单结束 --}}
+            </div>
+          </div>
+        </div>
+        <!-- 链接类奖品模态框结束 -->
+
+        <!-- 兑换码类奖品模态框 -->
+        <div id="add-code-prize" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">新增兑换码类奖项</h4>
               </div>
 
               {{-- 领奖表单 --}}
@@ -354,12 +589,12 @@
         <!-- 兑换码类奖品模态框结束 -->
 
         <!-- 实物类奖品模态框 -->
-        <div id="real-prize" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div id="add-real-prize" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">填写实物类奖项信息</h4>
+                <h4 class="modal-title">新增实物类奖项</h4>
               </div>
 
               {{-- 领奖表单 --}}
@@ -421,8 +656,7 @@
           </div>
         </div>
         <!-- 实物类奖品模态框结束 -->
-
-        <!-- 模态框集合结束 -->
+        {{-- 新增奖项按钮模态框结束 --}}
 
       </div><!-- set-prize -->
     </div><!-- row -->

@@ -1,3 +1,9 @@
+*::-moz-selection {
+  background-color: rgba(98, 98, 98, 0.1); }
+
+*::selection {
+  background-color: rgba(98, 98, 98, 0.1); }
+
 a:link,
 a:hover,
 a:active,
@@ -13,7 +19,8 @@ a:active,
 
 html,
 body {
-  background-color: #fcfcfc; }
+  background-color: #fcfcfc;
+  font-family: "San Francisco", "Helvetica Neue", "Lucida Grande", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Microhei", "XinGothic CiticPress", "Microsoft Yahei", Arial, sans-serif; }
 
 .parent {
   display: table; }
@@ -79,16 +86,86 @@ body {
   top: 30px; }
 
 #get-prize {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  background: #D9760B url("../img/bg.jpg") 0 100% no-repeat;
+  background: #fdedd4 url("../img/bg-final.png") 0 100% no-repeat;
   background-size: cover; }
-  #get-prize .jumbotron {
-    color: #fcfcfc;
-    background-color: rgba(229, 28, 35, 0.3); }
-    #get-prize .jumbotron h1 {
-      color: #fcfcfc; }
+  @media screen and (max-height: 480px) {
+    #get-prize {
+      background-position: center -10px; } }
 
 #brand-logo {
-  width: 200px;
+  margin-top: 10px;
+  width: 120px;
   height: auto; }
+
+.rule {
+  margin-right: 10px;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #999; }
+
+.prize-info,
+.other-prizes {
+  padding: 8px;
+  text-align: center;
+  border-radius: 1.4em;
+  background-color: rgba(229, 60, 29, 0.4); }
+
+.prize-info {
+  margin-top: 7rem; }
+  .prize-info h5 {
+    color: #333; }
+  .prize-info img.prize {
+    height: auto;
+    max-height: 80px;
+    text-align: center; }
+  @media screen and (min-height: 481px) {
+    .prize-info {
+      margin-top: 9rem; } }
+  @media screen and (min-height: 540px) {
+    .prize-info {
+      margin-top: 11rem; } }
+  @media screen and (min-height: 668px) {
+    .prize-info {
+      margin-top: 13rem; } }
+
+.other-prizes {
+  margin-top: 0.3em; }
+  .other-prizes h6 {
+    text-align: left;
+    color: #f22f2f;
+    font-weight: 700; }
+  .other-prizes ul {
+    list-style-type: none;
+    -webkit-padding-start: 0; }
+
+.get-btn {
+  margin-top: 10px;
+  text-align: center; }
+
+.partner {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-align: center; }
+  @media screen and (min-height: 481px) {
+    .partner {
+      color: #f1f1f1; } }
+  @media screen and (min-height: 600px) {
+    .partner {
+      position: absolute;
+      left: 0;
+      bottom: -120px; } }
+  @media screen and (min-height: 736px) {
+    .partner {
+      position: absolute;
+      bottom: -170px; } }
+  @media screen and (min-height: 773px) {
+    .partner {
+      position: absolute;
+      bottom: -200px; } }
+  .partner img {
+    width: 40px;
+    height: auto;
+    margin-right: 10px; }
