@@ -1,5 +1,9 @@
 @import "variable";
 
+*::selection {
+	background-color: rgba(98, 98, 98, 0.1);
+}
+
 a:link,
 a:hover,
 a:active,
