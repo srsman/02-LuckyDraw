@@ -16,6 +16,7 @@ class SettingThing extends Model
             'category_id' => $data['category_id'],
             'prize'   => $data['prize'],
             'name'   => $data['name'],
+            'amount' => $data['amount'],
             'weight'   => $data['weight'],
           ]);
         return $SettingThing['id'];
@@ -27,6 +28,7 @@ class SettingThing extends Model
             'category_id' => $data['category_id'],
             'prize'   => $data['prize'],
             'name'   => $data['name'],
+            'amount' => $data['amount'],
             'weight'   => $data['weight'],
           ]);
         return $data['data_id'];

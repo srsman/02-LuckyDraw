@@ -10,9 +10,10 @@
       <div id="query-prize" class="col-md-10 col-md-offset-1">
         <div class="page-header">
           <h2 class="h3">查询中奖情况</h2>
-          <form id="query-search" class="navbar-form navbar-left" role="search">
+          <form id="query-search" action="search"  method='post' class="navbar-form navbar-left" role="search">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="请输入关键词">
+              <input type="text" class="form-control" placeholder="请输入关键词" name="search">
             </div>
             <button type="submit" class="btn btn-default">搜索</button>
           </form>
@@ -30,33 +31,47 @@
                   <thead>
                     <tr>
                       <th>序号</th>
+                      <th>类型</th>
                       <th>中奖奖项</th>
                       <th>奖品名称</th>
                       <th>中奖者姓名</th>
                       <th>电话</th>
                       <th>住址</th>
+                      <th>中奖时间</th>
+
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($links as $key=>$link)
-                    @if ($link['award_prize']==='一等奖')
+                    @foreach ($querys as $key=> $query)
+                    @if ($query->award_prize==='一等奖')
                     <tr class="success">
-                    @elseif ($link['award_prize']==='二等奖')
+                    @elseif ($query->award_prize==='二等奖')
                     <tr class="warning">
+                    @elseif ($query->award_prize==='三等奖')
+                    <tr class="info">
                     @else
                     <tr class="danger">
                     @endif
-                      <td>1</td>
-                      <td class="prize-place">{{$link['award_prize']}}</td>
-                      <td>{{$link['award_content']}}</td>
-                      <td>{{$link['award_realname']}}</td>
-                      <td>{{$link['award_phone']}}</td>
-                      <td>{{$link['award_address']}}</td>
+                      <td>{{ ++$key }}</td>
+                      <td>
+                        @if ($query->award_type==='link')
+                         链接
+                         @elseif($query->award_type==='code')
+                         领取码
+                         @else 实物
+                         @endif
+                      </td>
+                      <td class="prize-place">{{$query->award_prize}}</td>
+                      <td>{{$query->award_content}}</td>
+                      <td>{{$query->award_realname}}</td>
+                      <td>{{$query->award_phone}}</td>
+                      <td>{{$query->award_address}}</td>
+                      <td>{{$query->created_at}}</td>
                     </tr>
                     @endforeach
                   </tbody>
                 </table>
-
+                {!! $querys->render() !!}
               </div>
             </div>
           </div>

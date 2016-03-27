@@ -23,13 +23,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="/">管理后台</a>
+              <a class="navbar-brand" href="">管理后台</a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="setPrize">奖项设置 <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">中奖查询</a></li>
+                <li><a href="queryPrize">中奖查询</a></li>
               </ul>
 
               {{-- 判断用户是否为登录状态。登录状态下，才显示此区块 --}}

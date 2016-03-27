@@ -13,21 +13,31 @@
 
         {{-- 提示中奖区域 --}}
         <section class="prize-info col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-          <h5 class="col-xs-12">恭喜你！<br>中了一等奖！</h5>
-          <img class="prize col-xs-8 col-xs-offset-2" src="{{ asset('dist/img/partner1.jpg') }}" alt="奖品图片">
+          <h5 class="col-xs-12">恭喜你！<br>中了{{ $luckdraw['prize'] }}！</h5>
+          <h6>{{$luckdraw['name']}}</h6>
+          <img class="prize col-xs-8 col-xs-offset-2" src="{{substr('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'], 0,-9).'uploads/img/'.$luckdraw['url'] }}" alt="奖品图片">
         </section>
+        @if($luckdraw['category_id']===2)
+        <section class="other-prizes col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+          <h6>【领取码】: {{ $luckdraw['code'] }}</h6>
+        </section>
+        @endif
 
         <section class="other-prizes col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-          <h6>本次活动还有这些奖品喔：</h6>
+          <h6>还有这些奖品喔：</h6>
           <ul>
-            <li>SKII 精华乳</li>
-            <li>相宜草本沐浴露</li>
-            <li>SKII 深海碳泥面膜</li>
+            @foreach($name_rands as $name_rand)
+            <li>{{ $name_rand }}</li>
+            @endforeach
           </ul>
         </section>
 
         <section class="get-btn col-xs-6 col-xs-offset-3">
+        @if($luckdraw['category_id']===3)
           <a href="" class="btn btn-normal btn-success" data-toggle="modal" data-target="#getIt">我要领奖</a>
+        @else
+          <a href="{{ 'https://'.$luckdraw['prize_url'] }}" class="btn btn-normal btn-success" >兑换</a>
+        @endif
         </section>
         {{-- 提示中奖区域 --}}
 
@@ -50,24 +60,24 @@
               <div class="modal-body">
 
                 {{-- 领奖表单 --}}
-                <form class="form-horizontal" action="./fillInfo" method="POST" enctype="multipart/form-data">
+                <form class="form-horizontal" action="fillInfo/{{$cuid}}" method="POST" >
                   <fieldset>
                     <div class="form-group">
                       <label for="inputName" class="col-lg-2 control-label">姓名</label>
                       <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputName" name="inputName" placeholder="请填写你的姓名">
+                        <input type="text" class="form-control" id="inputName"  placeholder="请填写你的姓名" name="award_realname">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputPhone" class="col-lg-2 control-label">手机号</label>
                       <div class="col-lg-10">
-                        <input type="password" class="form-control" id="inputPhone" name="inputPhone"  placeholder="请填写你的手机号码">
+                        <input type="text" class="form-control" id="inputPhone"  placeholder="请填写你的手机号码" name="award_phone">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputAddress" class="col-lg-2 control-label">住址</label>
                       <div class="col-lg-10">
-                        <input type="text" class="form-control" id="inputAddress" name="inputAddress" placeholder="请填写领取奖品的地址">
+                        <input type="text" class="form-control" id="inputAddress"  placeholder="请填写领取奖品的地址" name="award_address">
                       </div>
                     </div>
                   </fieldset>
