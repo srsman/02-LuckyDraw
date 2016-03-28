@@ -13,7 +13,25 @@
           <form id="query-search" action="search"  method='post' class="navbar-form navbar-left" role="search">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="请输入关键词" name="search">
+              <div class="select-cat col-lg-7">
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="cat-radio1" value="option2" checked>全选
+                  </label>
+                  <label>
+                    <input type="radio" name="optionsRadios" id="cat-radio2" value="option2">链接类
+                  </label>
+                  <label>
+                    <input type="radio" name="optionsRadios" id="cat-radio3" value="option2">兑换码类
+                  </label>
+                  <label>
+                    <input type="radio" name="optionsRadios" id="cat-radio4" value="option2">实物类
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-5">
+                <input type="text" class="form-control" placeholder="请输入关键词" name="search">
+              </div>
             </div>
             <button type="submit" class="btn btn-default">搜索</button>
           </form>

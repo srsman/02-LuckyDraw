@@ -80,6 +80,10 @@ body {
 #set-prize .prize-place {
   font-weight: 700; }
 
+.select-cat {
+  padding-top: 15px;
+  font-size: 14px; }
+
 #query-search {
   position: absolute;
   right: 20px;
