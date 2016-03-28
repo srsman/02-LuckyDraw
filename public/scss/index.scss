@@ -119,6 +119,7 @@ body {
 	height: 100vh;
 	background: #fdedd4 url('../img/bg-final.png') 0 100% no-repeat;
 	background-size: cover;
+	background-attachment: fixed;
 
 	@media screen and (max-height: 480px) {
 		background-position: center -10px;
@@ -143,7 +144,7 @@ body {
 	padding: 8px;
 	text-align: center;
 	border-radius: 1.4em;
-	background-color: rgba(229, 60, 29, 0.4);
+	background-color: rgba(229, 60, 29, 0.2);
 }
 
 .prize-info {
@@ -154,22 +155,32 @@ body {
 	}
 
 	img.prize {
-		height: auto;
-		max-height: 80px;
-		text-align: center;
+		max-width: 120px;
+		max-height: 90px;
+		height: 90px;
+		width: 120px;
+	}
+
+	.prize-name {
+		color: #f22f2f;
 	}
 
 	@media screen and (min-height: 481px) {
 		margin-top: 9rem;
 	}
 
-	@media screen and (min-height: 540px) {
+	@media screen and (min-height: 540px) and (max-height: 568px) {
+		margin-top: 8rem;
+	}
+
+	@media screen and (min-height: 569px) and (max-height: 667px) {
 		margin-top: 11rem;
 	}
 
-	@media screen and (min-height: 668px) {
+	@media screen and (min-height: 668px) and (max-height: 736px) {
 		margin-top: 13rem;
 	}
+
 }
 
 .other-prizes {
@@ -177,8 +188,12 @@ body {
 
 	h6 {
 		text-align: left;
-		color: #f22f2f;
+		color: #333;
 		font-weight: 700;
+	}
+
+	.prize-code {
+		text-align: center;
 	}
 
 	ul {
@@ -196,6 +211,14 @@ body {
 	margin-top: 20px;
 	margin-bottom: 10px;
 	text-align: center;
+
+	p {
+		color: #333;
+
+		@media screen and (min-height: 481px) {
+			color: #f1f1f1;
+		}
+	}
 
 	@media screen and (min-height: 481px) {
 		color: #f1f1f1;

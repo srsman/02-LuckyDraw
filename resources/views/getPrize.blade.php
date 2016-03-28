@@ -14,12 +14,14 @@
         {{-- 提示中奖区域 --}}
         <section class="prize-info col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
           <h5 class="col-xs-12">恭喜你！<br>中了{{ $luckdraw['prize'] }}！</h5>
-          <h6>{{$luckdraw['name']}}</h6>
-          <img class="prize col-xs-8 col-xs-offset-2" src="{{substr('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'], 0,-9).'uploads/img/'.$luckdraw['url'] }}" alt="奖品图片">
+          <h6 class="prize-name">{{$luckdraw['name']}}</h6>
+          <div class="prize-img col-xs-8 col-xs-offset-2">
+            <img class="prize" src="{{substr('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'], 0,-9).'uploads/img/'.$luckdraw['url'] }}" alt="奖品图片">
+          </div>
         </section>
         @if($luckdraw['category_id']===2)
         <section class="other-prizes col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-          <h6>【领取码】: {{ $luckdraw['code'] }}</h6>
+          <h6 class="prize-code">【领取码】: {{ $luckdraw['code'] }}</h6>
         </section>
         @endif
 
