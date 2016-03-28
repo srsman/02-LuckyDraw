@@ -16,21 +16,21 @@
               <div class="select-cat col-lg-7">
                 <div class="radio">
                   <label>
-                    <input type="radio" name="optionsRadios" id="cat-radio1" value="option2" checked>全选
+                    <input type="radio" name="optionsRadios" id="cat-radio1" value="all" checked>全选
                   </label>
                   <label>
-                    <input type="radio" name="optionsRadios" id="cat-radio2" value="option2">链接类
+                    <input type="radio" name="optionsRadios" id="cat-radio2" value="link">链接类
                   </label>
                   <label>
-                    <input type="radio" name="optionsRadios" id="cat-radio3" value="option2">兑换码类
+                    <input type="radio" name="optionsRadios" id="cat-radio3" value="code">兑换码类
                   </label>
                   <label>
-                    <input type="radio" name="optionsRadios" id="cat-radio4" value="option2">实物类
+                    <input type="radio" name="optionsRadios" id="cat-radio4" value="thing">实物类
                   </label>
                 </div>
               </div>
               <div class="col-lg-5">
-                <input type="text" class="form-control" placeholder="请输入关键词" name="search">
+                <input type="text" class="form-control" placeholder="请输入关键词" name="search" value="{{ isset($search) ? $search : '' }}">
               </div>
             </div>
             <button type="submit" class="btn btn-default">搜索</button>

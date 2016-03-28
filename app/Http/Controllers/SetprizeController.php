@@ -213,7 +213,11 @@ class SetprizeController extends Controller
    	public function searchaward(){
    		//搜索关键字查询中奖信息
    		$search=Request::input('search');
+        $select=Request::input('optionsRadios');
+        if($select=='all')
    		$querys = DB::table('award_user')->where('award_content','like','%'.$search.'%')->orderBy('created_at','desc')->Paginate(99999);
-   		return view('queryPrize')->with('querys',$querys);
+        else
+            $querys = DB::table('award_user')->where('award_type','=',$select)->where('award_content','like','%'.$search.'%')->orderBy('created_at','desc')->Paginate(99999);
+   		 return view('queryPrize')->with('querys',$querys)->with('search',$search);
    	}
 }
