@@ -99,7 +99,7 @@
                       <td>{{ $link['prize'] }}</td>
                       <td>{{ $link['name'] }}</td>
                       <td>{{ $link['prize_url'] }}</td>
-                      <td><a href="{{substr('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'], 0,-9).'uploads/img/'.$link['url'] }}">img</a></td>
+                      <td><a href="{{asset('uploads/img').'/'.$link['url'] }}">img</a></td>
                       <td>{{ $link['weight'] }}</td>
                       <td>
                         <a href="setPrize/dellink/{{$link['id']}}" class="btn btn-sm btn-danger">删除</a>
@@ -153,7 +153,7 @@
                       <td>{{ $code['prize'] }}</td>
                       <td>{{ $code['name'] }}</td>
                       <td>{{ $code['prize_url'] }}</td>
-                      <td><a href="{{substr('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'], 0,-9).'uploads/img/'.$code['url'] }}">img</a></td>
+                      <td><a href="{{asset('uploads/img').'/'.$code['url'] }}">img</a></td>
                       <td><a href="">excel</a></td>
                       <td>{{ $code['weight'] }}</td>
                       <td>
@@ -206,7 +206,7 @@
                       <td>{{ ++$key }}</td>
                       <td>{{ $thing['prize'] }}</td>
                       <td>{{ $thing['name'] }}</td>
-                      <td><a href="{{substr('http://'.$_SERVER['HTTP_HOST'].$_SERVER['PHP_SELF'], 0,-9).'uploads/img/'.$thing['url'] }}">img</a></td>
+                      <td><a href="{{asset('uploads/img').'/'.$thing['url'] }}">img</a></td>
                       <td>{{ $thing['amount'] }}</td>
                       <td>{{ $thing['weight'] }}</td>
                       <td>
