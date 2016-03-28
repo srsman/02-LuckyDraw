@@ -44,6 +44,7 @@ class AdminController extends Controller
 				$new_password=Request::input('new_password');    			
     			$user->password =$new_password;
     			$user->save();
+                Session::flush();
                 return redirect('admin/login');
     		// 	echo "修改成功";
     		// }
