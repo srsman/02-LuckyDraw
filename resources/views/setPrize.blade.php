@@ -20,7 +20,7 @@
           </div>
 
           <div class="panel-body">
-            <form class="form-vertical" action="" method="POST" enctype="multipart/form-data">
+            <form class="form-vertical" action="setPrize/category" method="POST" >
 
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -32,7 +32,7 @@
                       <label for="inputProbability" class="control-label">链接类奖品中奖概率</label>
                     </div>
                     <div class="col-sm-6 col-md-2">
-                      <input type="number" class="form-control" id="inputProbability" placeholder="中奖概率（单位: %）">
+                      <input type="text" class="form-control" id="inputProbability" placeholder="中奖概率（单位: %）" value="{{ round($rates[0]['award_rate']/100,2)}}" name="link_rate">
                     </div>
                   </div>
 
@@ -41,7 +41,7 @@
                       <label for="inputProbability" class="control-label">兑换码类奖品中奖概率</label>
                     </div>
                     <div class="col-sm-6 col-md-2">
-                      <input type="number" class="form-control" id="inputProbability" placeholder="中奖概率（单位: %）">
+                      <input type="text" class="form-control" id="inputProbability" placeholder="中奖概率（单位: %）" value="{{ round($rates[1]['award_rate']/100,2)}}" name="code_rate">
                     </div>
                   </div>
 
@@ -50,7 +50,7 @@
                       <label for="inputProbability" class="control-label">实物类奖品中奖概率</label>
                     </div>
                     <div class="col-sm-6 col-md-2">
-                      <input type="number" class="form-control" id="inputProbability" placeholder="中奖概率（单位: %）">
+                      <input type="text" class="form-control" id="inputProbability" placeholder="中奖概率（单位: %）" value="{{ round($rates[2]['award_rate']/100,2)}}" name="thing_rate">
                     </div>
                   </div>
                 </div>
@@ -59,8 +59,7 @@
               {{-- 按钮 --}}
               <div class="row">
                 <div class="form-group action-btn col-xs-12">
-                  <div class="col-sm-4 col-md-2 pull-right" align="center">
-                    <button type="reset" class="btn btn-normal btn-default">重置</button>
+                  <div class="col-sm-4 col-md-1 pull-right" align="center">
                     <button type="submit" class="btn btn-normal btn-warning">保存</button>
                   </div>
                 </div>
@@ -94,18 +93,20 @@
                     </tr>
                   </thead>
                   <tbody>
+                   @foreach($links as $key=>$link)
                     <tr>
-                      <td>1</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ ++$key }}</td>
+                      <td>{{ $link['prize'] }}</td>
+                      <td>{{ $link['name'] }}</td>
+                      <td>{{ $link['prize_url'] }}</td>
+                      <td><a href="{{asset('uploads/img').'/'.$link['url'] }}">img</a></td>
+                      <td>{{ $link['weight'] }}</td>
                       <td>
-                        <a href="" class="btn btn-sm btn-danger">删除</a>
-                        <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#link-prize">修改</a>
+                        <a href="setPrize/dellink/{{$link['id']}}" class="btn btn-sm btn-danger">删除</a>
+                        <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#link-prize{{ $link['id'] }}">修改</a>
                       </td>
                     </tr>
+                   @endforeach
                   </tbody>
                 </table>
 
@@ -146,19 +147,21 @@
                     </tr>
                   </thead>
                   <tbody>
+                  @foreach($codes as $key =>$code)
                     <tr>
-                      <td>1</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ ++$key }}</td>
+                      <td>{{ $code['prize'] }}</td>
+                      <td>{{ $code['name'] }}</td>
+                      <td>{{ $code['prize_url'] }}</td>
+                      <td><a href="{{asset('uploads/img').'/'.$code['url'] }}">img</a></td>
+                      <td><a href="">excel</a></td>
+                      <td>{{ $code['weight'] }}</td>
                       <td>
-                        <a href="" class="btn btn-sm btn-danger">删除</a>
-                        <a href="" class="btn btn-sm btn-success" data-toggle="modal" data-target="#code-prize">修改</a>
+                        <a href="setPrize/delcode/{{ $code['id'] }}" class="btn btn-sm btn-danger">删除</a>
+                        <a href="" class="btn btn-sm btn-success" data-toggle="modal" data-target="#code-prize{{ $code['id'] }}">修改</a>
                       </td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
 
@@ -198,18 +201,20 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($things as $key =>$thing)
                     <tr>
-                      <td>1</td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{ ++$key }}</td>
+                      <td>{{ $thing['prize'] }}</td>
+                      <td>{{ $thing['name'] }}</td>
+                      <td><a href="{{asset('uploads/img').'/'.$thing['url'] }}">img</a></td>
+                      <td>{{ $thing['amount'] }}</td>
+                      <td>{{ $thing['weight'] }}</td>
                       <td>
-                        <a href="" class="btn btn-sm btn-danger">删除</a>
-                        <a href="" class="btn btn-sm btn-info" data-toggle="modal" data-target="#real-prize">修改</a>
+                        <a href="setPrize/delthing/{{ $thing['id'] }}" class="btn btn-sm btn-danger">删除</a>
+                        <a href="" class="btn btn-sm btn-info" data-toggle="modal" data-target="#real-prize{{ $thing['id'] }}">修改</a>
                       </td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
 
@@ -229,7 +234,8 @@
         <!-- 模态框集合 -->
 
         <!-- 链接类奖品模态框 -->
-        <div id="link-prize" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        @foreach($links as $link)
+        <div id="link-prize{{ $link['id'] }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -238,7 +244,7 @@
               </div>
 
               {{-- 领奖表单 --}}
-              <form class="form-vertical">
+              <form class="form-vertical" action="setPrize/editlink/{{ $link['id'] }}" method="post" enctype="multipart/form-data" >
                 <div class="modal-body">
                   <fieldset>
 
@@ -246,10 +252,28 @@
                     <div class="form-group">
                       <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
                       <div class="col-lg-9">
-                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                        <select class="form-control" id="selectPrizePlaces" name="prize" required>
+                        @if($link['prize']==='一等奖')
                           <option selected>一等奖</option>
                           <option>二等奖</option>
                           <option>三等奖</option>
+                          <option>四等奖</option>
+                        @elseif($link['prize']==='二等奖')
+                          <option>一等奖</option>
+                          <option selected>二等奖</option>
+                          <option>三等奖</option>
+                          <option>四等奖</option>
+                        @elseif($link['prize']==='三等奖')
+                          <option>一等奖</option>
+                          <option>二等奖</option>
+                          <option selected>三等奖</option>
+                          <option>四等奖</option>
+                        @else
+                          <option>一等奖</option>
+                          <option>二等奖</option>
+                          <option >三等奖</option>
+                          <option selected>四等奖</option>
+                        @endif
                         </select>
                       </div>
                     </div>
@@ -257,28 +281,28 @@
                     <div class="form-group">
                       <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
                       <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称"  name="name" value="{{ $link['name'] }}" required>
                       </div>
                     </div>
                     {{-- 兑奖链接 --}}
                     <div class="form-group">
                       <label for="inputURL" class="col-lg-3 control-label">兑奖链接</label>
                       <div class="col-lg-9">
-                        <input type="url" class="form-control" id="inputURL" placeholder="请输入兑奖链接" required>
+                        <input type="text" class="form-control" id="inputURL" placeholder="请输入兑奖链接"  name="prize_url" value="{{ $link['prize_url'] }}" required>
                       </div>
                     </div>
                     {{-- 奖品图片 --}}
                     <div class="form-group">
                       <label for="inputImg" class="col-lg-3 control-label">上传奖品图片</label>
                       <div class="col-lg-9">
-                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" required>
+                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" >
                       </div>
                     </div>
                     {{-- 权重 --}}
                     <div class="form-group">
                       <label for="inputNumber" class="col-lg-3 control-label">权重</label>
                       <div class="col-lg-9">
-                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                        <input type="number" class="form-control" id="inputNumber" name="weight" placeholder="请输入奖品权重" value="{{ $link['weight']}}" required>
                       </div>
                     </div>
 
@@ -287,17 +311,19 @@
                 {{-- 操作按钮 --}}
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                  <button type="button" class="btn btn-primary">保存</button>
+                  <button type="submit" class="btn btn-primary">保存</button>
                 </div>
               </form>
               {{-- 领奖表单结束 --}}
             </div>
           </div>
         </div>
+        @endforeach
         <!-- 链接类奖品模态框结束 -->
 
         <!-- 兑换码类奖品模态框 -->
-        <div id="code-prize" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        @foreach($codes as $key =>$code)
+        <div id="code-prize{{ $code['id'] }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -306,17 +332,35 @@
               </div>
 
               {{-- 领奖表单 --}}
-              <form class="form-vertical">
+              <form class="form-vertical" action="setPrize/editcode/{{ $code['id'] }}" method="post" enctype="multipart/form-data" >
                 <div class="modal-body">
                   <fieldset>
                     {{-- 奖项 --}}
                     <div class="form-group">
                       <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
                       <div class="col-lg-9">
-                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                        <select class="form-control" id="selectPrizePlaces" name="prize" required>
+                        @if($code['prize']==='一等奖')
                           <option selected>一等奖</option>
                           <option>二等奖</option>
                           <option>三等奖</option>
+                          <option>四等奖</option>
+                        @elseif($code['prize']==='二等奖')
+                          <option>一等奖</option>
+                          <option selected>二等奖</option>
+                          <option>三等奖</option>
+                          <option>四等奖</option>
+                        @elseif($code['prize']==='三等奖')
+                          <option>一等奖</option>
+                          <option>二等奖</option>
+                          <option selected>三等奖</option>
+                          <option>四等奖</option>
+                        @else
+                          <option>一等奖</option>
+                          <option>二等奖</option>
+                          <option >三等奖</option>
+                          <option selected>四等奖</option>
+                        @endif
                         </select>
                       </div>
                     </div>
@@ -324,21 +368,21 @@
                     <div class="form-group">
                       <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
                       <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称"  value="{{ $code['name'] }}" name="name" required>
                       </div>
                     </div>
                     {{-- 兑奖链接 --}}
                     <div class="form-group">
                       <label for="inputURL" class="col-lg-3 control-label">兑奖链接</label>
                       <div class="col-lg-9">
-                        <input type="url" class="form-control" id="inputURL" placeholder="请输入兑奖链接" required>
+                        <input type="text" class="form-control" id="inputURL" placeholder="请输入兑奖链接" value="{{ $code['prize_url'] }}" name="prize_url" required>
                       </div>
                     </div>
                     {{-- 奖品图片 --}}
                     <div class="form-group">
                       <label for="inputImg" class="col-lg-3 control-label">上传奖品图片</label>
                       <div class="col-lg-9">
-                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" required>
+                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" >
                       </div>
                     </div>
                     {{-- 上传Excel 兑换码 --}}
@@ -352,7 +396,7 @@
                     <div class="form-group">
                       <label for="inputNumber" class="col-lg-3 control-label">权重</label>
                       <div class="col-lg-9">
-                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                        <input type="number" class="form-control" id="inputNumber" name="weight" placeholder="请输入奖品权重" value="{{$code['weight'] }}" required>
                       </div>
                     </div>
 
@@ -361,7 +405,7 @@
                 {{-- 操作按钮 --}}
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                  <button type="button" class="btn btn-success">保存</button>
+                  <button type="submit" class="btn btn-success">保存</button>
                 </div>
               </form>
               {{-- 领奖表单结束 --}}
@@ -369,10 +413,12 @@
             </div>
           </div>
         </div>
+        @endforeach
         <!-- 兑换码类奖品模态框结束 -->
 
         <!-- 实物类奖品模态框 -->
-        <div id="real-prize" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        @foreach($things as $key =>$thing)
+        <div id="real-prize{{ $thing['id'] }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
@@ -381,17 +427,35 @@
               </div>
 
               {{-- 领奖表单 --}}
-              <form class="form-vertical">
+              <form class="form-vertical" action="setPrize/editthing/{{ $thing['id'] }}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                   <fieldset>
                     {{-- 奖项 --}}
                     <div class="form-group">
                       <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
                       <div class="col-lg-9">
-                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                        <select class="form-control" id="selectPrizePlaces" name="prize" required>
+                        @if($thing['prize']==='一等奖')
                           <option selected>一等奖</option>
                           <option>二等奖</option>
                           <option>三等奖</option>
+                          <option>四等奖</option>
+                        @elseif($thing['prize']==='二等奖')
+                          <option>一等奖</option>
+                          <option selected>二等奖</option>
+                          <option>三等奖</option>
+                          <option>四等奖</option>
+                        @elseif($thing['prize']==='三等奖')
+                          <option>一等奖</option>
+                          <option>二等奖</option>
+                          <option selected>三等奖</option>
+                          <option>四等奖</option>
+                        @else
+                          <option>一等奖</option>
+                          <option>二等奖</option>
+                          <option >三等奖</option>
+                          <option selected>四等奖</option>
+                        @endif
                         </select>
                       </div>
                     </div>
@@ -399,28 +463,28 @@
                     <div class="form-group">
                       <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
                       <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" value="{{ $thing['name'] }}" name="name" required>
                       </div>
                     </div>
                     {{-- 奖品图片 --}}
                     <div class="form-group">
                       <label for="inputImg" class="col-lg-3 control-label">上传奖品图片</label>
                       <div class="col-lg-9">
-                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" required>
+                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" >
                       </div>
                     </div>
                     {{-- 奖品数量 --}}
                     <div class="form-group">
                       <label for="inputNumber" class="col-lg-3 control-label">奖品数量</label>
                       <div class="col-lg-9">
-                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" value="" placeholder="请填写奖品数量" required>
+                        <input type="number" class="form-control" id="inputNumber" name="amount"  placeholder="请填写奖品数量" value="{{ $thing['amount'] }}" required>
                       </div>
                     </div>
                     {{-- 权重 --}}
                     <div class="form-group">
                       <label for="inputNumber" class="col-lg-3 control-label">权重</label>
                       <div class="col-lg-9">
-                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                        <input type="number" class="form-control" id="inputNumber" name="weight" placeholder="请输入奖品权重" value="{{ $thing['weight'] }}"  required>
                       </div>
                     </div>
 
@@ -429,7 +493,7 @@
                   {{-- 操作按钮 --}}
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-info">保存</button>
+                    <button type="submit" class="btn btn-info">保存</button>
                   </div>
                 </div>
               </form>
@@ -438,6 +502,7 @@
             </div>
           </div>
         </div>
+        @endforeach
         <!-- 实物类奖品模态框结束 -->
 
         <!-- 模态框集合结束 -->
@@ -455,7 +520,7 @@
               </div>
 
               {{-- 领奖表单 --}}
-              <form class="form-vertical">
+              <form class="form-vertical" action="setPrize/link" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                   <fieldset>
 
@@ -463,10 +528,11 @@
                     <div class="form-group">
                       <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
                       <div class="col-lg-9">
-                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                        <select class="form-control" id="selectPrizePlaces" name="prize" required>
                           <option selected>一等奖</option>
                           <option>二等奖</option>
                           <option>三等奖</option>
+                          <option>四等奖</option>
                         </select>
                       </div>
                     </div>
@@ -474,28 +540,28 @@
                     <div class="form-group">
                       <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
                       <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" name="name" required>
                       </div>
                     </div>
                     {{-- 兑奖链接 --}}
                     <div class="form-group">
                       <label for="inputURL" class="col-lg-3 control-label">兑奖链接</label>
                       <div class="col-lg-9">
-                        <input type="url" class="form-control" id="inputURL" placeholder="请输入兑奖链接" required>
+                        <input type="text" class="form-control" id="inputURL" placeholder="请输入兑奖链接" name="prizeurl" required>
                       </div>
                     </div>
                     {{-- 奖品图片 --}}
                     <div class="form-group">
                       <label for="inputImg" class="col-lg-3 control-label">上传奖品图片</label>
                       <div class="col-lg-9">
-                        <input type="file" class="form-control" id="inputImg" name="inputImg" placeholder="上传图片" required>
+                        <input type="file" class="form-control" id="inputImg" placeholder="上传图片" name="inputImg" required>
                       </div>
                     </div>
                     {{-- 权重 --}}
                     <div class="form-group">
                       <label for="inputNumber" class="col-lg-3 control-label">权重</label>
                       <div class="col-lg-9">
-                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                        <input type="number" class="form-control" id="inputNumber"  placeholder="请输入奖品权重" value="" name="weight" required>
                       </div>
                     </div>
 
@@ -504,7 +570,7 @@
                 {{-- 操作按钮 --}}
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                  <button type="button" class="btn btn-primary">保存</button>
+                  <button type="submit" class="btn btn-primary">保存</button>
                 </div>
               </form>
               {{-- 领奖表单结束 --}}
@@ -523,17 +589,18 @@
               </div>
 
               {{-- 领奖表单 --}}
-              <form class="form-vertical">
+              <form class="form-vertical" action="setPrize/code" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                   <fieldset>
                     {{-- 奖项 --}}
                     <div class="form-group">
                       <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
                       <div class="col-lg-9">
-                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                        <select class="form-control" id="selectPrizePlaces" name="prize" required>
                           <option selected>一等奖</option>
                           <option>二等奖</option>
                           <option>三等奖</option>
+                          <option>四等奖</option>
                         </select>
                       </div>
                     </div>
@@ -541,14 +608,14 @@
                     <div class="form-group">
                       <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
                       <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" name="name" required>
                       </div>
                     </div>
                     {{-- 兑奖链接 --}}
                     <div class="form-group">
                       <label for="inputURL" class="col-lg-3 control-label">兑奖链接</label>
                       <div class="col-lg-9">
-                        <input type="url" class="form-control" id="inputURL" placeholder="请输入兑奖链接" required>
+                        <input type="text" class="form-control" id="inputURL" placeholder="请输入兑奖链接" name="prize_url" required>
                       </div>
                     </div>
                     {{-- 奖品图片 --}}
@@ -569,7 +636,7 @@
                     <div class="form-group">
                       <label for="inputNumber" class="col-lg-3 control-label">权重</label>
                       <div class="col-lg-9">
-                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                        <input type="number" class="form-control" id="inputNumber" name="weight" placeholder="请输入奖品权重" required>
                       </div>
                     </div>
 
@@ -578,7 +645,7 @@
                 {{-- 操作按钮 --}}
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                  <button type="button" class="btn btn-success">保存</button>
+                  <button type="submit" class="btn btn-success">保存</button>
                 </div>
               </form>
               {{-- 领奖表单结束 --}}
@@ -598,17 +665,18 @@
               </div>
 
               {{-- 领奖表单 --}}
-              <form class="form-vertical">
+              <form class="form-vertical" action="setPrize/thing" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                   <fieldset>
                     {{-- 奖项 --}}
                     <div class="form-group">
                       <label for="selectPrizePlaces" class="col-lg-3 control-label">奖项</label>
                       <div class="col-lg-9">
-                        <select class="form-control" id="selectPrizePlaces" name="selectPrizePlaces" required>
+                        <select class="form-control" id="selectPrizePlaces" name="prize" required>
                           <option selected>一等奖</option>
                           <option>二等奖</option>
                           <option>三等奖</option>
+                          <option>四等奖</option>
                         </select>
                       </div>
                     </div>
@@ -616,7 +684,7 @@
                     <div class="form-group">
                       <label for="inputPrizeName" class="col-lg-3 control-label">奖品名称</label>
                       <div class="col-lg-9">
-                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" required>
+                        <input type="text" class="form-control" id="inputPrizeName" placeholder="请输入奖品名称" name="name" required>
                       </div>
                     </div>
                     {{-- 奖品图片 --}}
@@ -630,14 +698,14 @@
                     <div class="form-group">
                       <label for="inputNumber" class="col-lg-3 control-label">奖品数量</label>
                       <div class="col-lg-9">
-                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" value="" placeholder="请填写奖品数量" required>
+                        <input type="number" class="form-control" id="inputNumber" s value="" placeholder="请填写奖品数量" name="amount" required>
                       </div>
                     </div>
                     {{-- 权重 --}}
                     <div class="form-group">
                       <label for="inputNumber" class="col-lg-3 control-label">权重</label>
                       <div class="col-lg-9">
-                        <input type="number" class="form-control" id="inputNumber" name="inputNumber" placeholder="请输入奖品权重" value="" required>
+                        <input type="number" class="form-control" id="inputNumber" name="weight" placeholder="请输入奖品权重"  required>
                       </div>
                     </div>
 
@@ -646,7 +714,7 @@
                   {{-- 操作按钮 --}}
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-info">保存</button>
+                    <button type="submit" class="btn btn-info">保存</button>
                   </div>
                 </div>
               </form>

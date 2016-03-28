@@ -23,28 +23,69 @@ class IndexController extends Controller
 		$estimate_cuid=Cuid::where('cuid','=',$cuid)->get()->toArray();
 		if(!empty($estimate_cuid))
 		{
-			echo "您已抽过奖";
+			// echo "您已抽过奖";
+			// print_r($estimate_cuid);
+			// $luckdraw
+			if($estimate_cuid[0]['category_id']==1)
+			{
+				$luckdraw=SettingLink::find($estimate_cuid[0]['aid'])->toArray();
+			}
+			elseif ($estimate_cuid[0]['category_id']==2) {
+				$luckdraw=SettingCode::find($estimate_cuid[0]['aid'])->toArray();
+				$code=Code::where('cuid','=',$cuid)->get()->toArray();
+				$luckdraw['code']=$code[0]['code'];
+			}
+			else {
+				$luckdraw=SettingThing::find($estimate_cuid[0]['aid'])->toArray();
+			}
+
+			
+
 		}
 		else{
-			//将cuid录入数据表cuids
+			//进行抽奖
+			$luckdraw=$this->getaward($cuid);
+			//将cuid,奖品的category_id,id录入数据表cuids
 			$new_cuid=new Cuid;
 			$new_cuid->cuid=$cuid;
+			$new_cuid->category_id=$luckdraw['category_id'];
+			$new_cuid->aid=$luckdraw['id'];
 			$new_cuid->save();
-			//进行抽奖
-			$luckdraw=$this->getaward();
-
+			//储存中奖者信息进数据表award_user
+			$new_award_user=new AwardUsers;
+			$new_award_user->cuid=$cuid;
+			//获得奖品类型
+			$type=Category::find($luckdraw['category_id'])->type;
+			$new_award_user->award_type=$type;
+			$new_award_user->award_prize=$luckdraw['prize'];
+			$new_award_user->award_content=$luckdraw['name'];
+			$new_award_user->save();
+		}
+		//同类奖品随机出现三样
+		//判断什么类型
+		if($luckdraw['category_id']==1)
+		{
+			$name_arr=SettingLink::where('name','<>',$luckdraw['name'])->lists('name')->toArray();
+			$name_rands=$this->randaward($name_arr);
+		}
+		else if($luckdraw['category_id']==2)
+		{
+			$name_arr=SettingCode::where('name','<>',$luckdraw['name'])->lists('name')->toArray();
+			$name_rands=$this->randaward($name_arr);
+		}
+		else
+		{
+			$name_arr=SettingThing::where('name','<>',$luckdraw['name'])->lists('name')->toArray();
+			$name_rands=$this->randaward($name_arr);
 		}
 
-    //返回奖品信息到视图
-
-    // return view('getPrize')->with('luckdraw',$luckdraw);  
-    print_r($luckdraw);
-    
+		return view('getPrize',['luckdraw'=>$luckdraw,'name_rands'=>$name_rands,'cuid'=>$cuid]); 
+		// print_r($name_rand);
 
 	}
-	public function getaward(){
 
-		  //抽奖算法 
+	//抽奖算法,获得奖品
+	public function getaward($cuid){	   
 	//取出概率大于0的奖品类
     $award_rate=Category::where('award_rate','>','0')->get()->toArray();
     //奖品概率算法
@@ -61,7 +102,7 @@ class IndexController extends Controller
     // 	抽到链接
     if($a[mt_rand(1,$rate_all)]=='link')
     {
-    	$award=SettingLink::all()->toArray();
+    	$award=SettingLink::where('weight','>','0')->get()->toArray();
     
     	// 权重抽取算法
     	$arr=array(0);
@@ -108,6 +149,7 @@ class IndexController extends Controller
 	   	//把领取码子表status置0
 	   	$code_status=Code::find($code[0]['id']);
 	   	$code_status->status=0;
+	   	$code_status->cuid=$cuid;
 	   	$code_status->save();
 	   	//检查该领取码奖项领取码是否被领完，如果被领完权重weight置0
 	   	$estimate_status=Code::where('cid','=',$luck_id)->where('status','=','1')->get()->toArray();
@@ -165,23 +207,40 @@ class IndexController extends Controller
        }
         return $luckdraw;
     }
+    //随机奖品
+    public function randaward($name_arr){
+    	//判断奖品数量是否大于三，大于三则随机抽取，小于或等于三则返回
+    	$p=count($name_arr)-3;
+		if($p>0)
+		{	
+			$rand=array_rand($name_arr,3);
+			$name_rand[0]=$name_arr[$rand[0]];
+			$name_rand[1]=$name_arr[$rand[1]];
+			$name_rand[2]=$name_arr[$rand[2]];
 
-    public function getWechatUserInfo(Request $request){
-        //打开网页获取微信用户信息
+			return $name_rand;
+		}
+		else
+			{
+				$name_rand=$name_arr;
+				return $name_rand;
+			}
+
     }
 
-    public function fillInfo(Request $request){
-        //此处仅保存更新存储用户中奖信息（非创建，应在打开页面时就创建用户数据）
-        $input = $request->input(); 
-        $data = array();
-        $data['inputName'] = $input['inputName'];
-        $data['inputPhone'] = $input['inputPhone'];
-        $data['inputAddress'] = $input['inputAddress'];
-        //openid应该使用全局变量
-        //$newData = serialize($data);
-        print_r($newData);
-        //return $input;
-        //return view('getPrize')
+    // public function getWechatUserInfo(Request $request){
+    //     //打开网页获取微信用户信息
+    // }
+    //实物填写中奖信息
+    public function fillInfo($cuid,Request $request){
+
+    	$input = $request->input();
+    	$award_realname = $input['award_realname'];
+        $award_phone    = $input['award_phone'];
+        $award_address  = $input['award_address'];
+        $awarduser=AwardUsers::where('cuid','=',$cuid)->update(['award_realname'=>$award_realname,      'award_phone'=>$award_phone,'award_address'=>$award_address]); 
+
+        return redirect('/getPrize/CUID='.$cuid);
     }
 
 }
