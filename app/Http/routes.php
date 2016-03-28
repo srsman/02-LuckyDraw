@@ -6,6 +6,9 @@
  Route::get('/admin/login', function () {
     return view('login');
  });
+ Route::get('admin', function(){
+    return view('login');
+ })
  Route::post('/admin/login','AdminController@login');
 
  //抽奖首页
