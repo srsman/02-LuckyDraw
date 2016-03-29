@@ -99,6 +99,12 @@ body {
   margin-top: 10px;
   width: 120px;
   height: auto; }
+  @media screen and (min-width: 375px) {
+    #brand-logo {
+      width: 140px; } }
+  @media screen and (min-width: 414px) {
+    #brand-logo {
+      width: 160px; } }
 
 #congratulation {
   width: 75%;
@@ -122,6 +128,12 @@ body {
   position: relative;
   background: transparent url("../img/red-bag@2x.png") center 15% no-repeat;
   background-size: 95%; }
+  @media screen and (min-width: 375px) {
+    .red-bags {
+      background-position: center 30%; } }
+  @media screen and (min-width: 414px) {
+    .red-bags {
+      background-position: center 150%; } }
 
 .rule-icon img {
   position: absolute;
@@ -139,7 +151,7 @@ body {
   background-color: rgba(229, 60, 29, 0.3); }
 
 .prize-info {
-  margin-top: 1rem; }
+  margin-top: 1.5rem; }
   .prize-info h5 {
     color: #333;
     font-weight: 700; }

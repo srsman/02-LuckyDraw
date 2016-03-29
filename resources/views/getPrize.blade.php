@@ -9,7 +9,7 @@
     <div class="row">
       <div class="red-bags col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="ground"></div>
-        <img id="brand-logo" src="{{ asset('dist/img/logo.png') }}" alt="LANSUR Logo">
+        <img id="brand-logo" src="{{ asset('dist/img/logo@2x.png') }}" alt="LANSUR Logo">
         <a class="rule-icon" href="" data-toggle="modal" data-target="#rule"><img src="{{ asset('dist/img/rules.png') }}" alt="游戏规则" /></a>
         <div id="congratulation"></div>
 
