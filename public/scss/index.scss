@@ -131,6 +131,14 @@ body {
 	margin-top: 10px;
 	width: 120px;
 	height: auto;
+
+	@media screen and (min-width: 375px) {
+		width: 140px;
+	}
+
+	@media screen and (min-width: 414px) {
+		width: 160px;
+	}
 }
 
 #congratulation {
@@ -157,6 +165,14 @@ body {
 	position: relative;
 	background: transparent url('../img/red-bag@2x.png') center 15% no-repeat;
 	background-size: 95%;
+
+	@media screen and (min-width: 375px) {
+		background-position: center 30%;
+	}
+
+	@media screen and (min-width: 414px) {
+		background-position: center 150%;
+	}
 }
 
 .rule-icon img {
@@ -177,7 +193,7 @@ body {
 }
 
 .prize-info {
-	margin-top: 1rem;
+	margin-top: 1.5rem;
 
 	h5 {
 		color: #333;
