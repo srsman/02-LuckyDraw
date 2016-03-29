@@ -141,7 +141,7 @@
                       <th>奖品名称</th>
                       <th>兑奖链接</th>
                       <th>奖品图片</th>
-                      <th>Excel 表格</th>
+                     <!--  <th>Excel 表格</th> -->
                       <th>权重</th>
                       <th>操作</th>
                     </tr>
@@ -154,7 +154,7 @@
                       <td>{{ $code['name'] }}</td>
                       <td>{{ $code['prize_url'] }}</td>
                       <td><a href="{{asset('uploads/img').'/'.$code['url'] }}">img</a></td>
-                      <td><a href="">excel</a></td>
+                      <!-- <td><a href="">excel</a></td> -->
                       <td>{{ $code['weight'] }}</td>
                       <td>
                         <a href="setPrize/delcode/{{ $code['id'] }}" class="btn btn-sm btn-danger">删除</a>

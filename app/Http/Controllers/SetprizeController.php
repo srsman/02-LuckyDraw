@@ -58,7 +58,7 @@ class SetprizeController extends Controller
     	//上传图片并保存链接
     	$destinationPath = public_path().'\uploads\img';
     	$pic=Request::file('inputImg');
-    	$fileName = md5(date('ymdhis')).$pic->getClientOriginalExtension();
+    	$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
         $file = Request::file('inputImg')->move($destinationPath, $fileName);
         $new_link->url=$fileName;
         $new_link->save();
@@ -75,7 +75,7 @@ class SetprizeController extends Controller
     	$link->weight=Request::input('weight');
     	$pic= Request::file('inputImg');
     	if(!empty($pic)){
-    		$fileName = md5(date('ymdhis')).$pic->getClientOriginalExtension();
+    		$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
 	    	$destinationPath = public_path().'\uploads\img';
 	        $file = Request::file('inputImg')->move($destinationPath, $fileName);
 	        $link->url=$fileName;
@@ -100,7 +100,7 @@ class SetprizeController extends Controller
     	 //上传图片并保存链接
     	$destinationPath = public_path().'\uploads\img';
     	$pic=Request::file('inputImg');
-    	$fileName = md5(date('ymdhis')).$pic->getClientOriginalExtension();
+    	$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
         $file = Request::file('inputImg')->move($destinationPath, $fileName);
         $new_code->url=$fileName;
         $new_code->save();
@@ -144,7 +144,7 @@ class SetprizeController extends Controller
     	$code->weight=Request::input('weight');
     	$pic= Request::file('inputImg');
     	if(!empty($pic)){
-    		$fileName = md5(date('ymdhis')).$pic->getClientOriginalExtension();
+    		$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
 	    	$destinationPath = public_path().'\uploads\img';
 	        $file = Request::file('inputImg')->move($destinationPath, $fileName);
 	        $code->url=$fileName;
@@ -171,7 +171,7 @@ class SetprizeController extends Controller
     	//上传图片并保存链接
     	$destinationPath = public_path().'\uploads\img';
     	$pic=Request::file('inputImg');
-    	$fileName = md5(date('ymdhis')).$pic->getClientOriginalExtension();
+    	$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
         $file = Request::file('inputImg')->move($destinationPath, $fileName);
         $new_thing->url=$fileName;
         $new_thing->save();
@@ -188,7 +188,7 @@ class SetprizeController extends Controller
     	$thing->amount=Request::input('amount');
     	$pic= Request::file('inputImg');
     	if(!empty($pic)){
-    		$fileName = md5(date('ymdhis')).$pic->getClientOriginalExtension();
+    		$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
 	    	$destinationPath = public_path().'\uploads\img';
 	        $file = Request::file('inputImg')->move($destinationPath, $fileName);
 	        $thing->url=$fileName;
