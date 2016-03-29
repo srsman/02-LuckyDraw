@@ -46,14 +46,6 @@
         </section>
         {{-- 提示中奖区域 --}}
 
-        <section class="partner col-xs-12">
-          {{-- <p>合作伙伴</p> --}}
-          <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner1.jpg') }}" alt="">
-          <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner2.png') }}" alt="">
-          <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner3.jpg') }}" alt="">
-          <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner4.jpg') }}" alt="">
-        </section>
-
         {{-- 填写领奖信息模态框 --}}
         <div id="getIt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog">
@@ -124,6 +116,14 @@
         {{-- 模态框结束 --}}
 
       </div>
+
+      <section class="partner col-xs-12">
+        {{-- <p>合作伙伴</p> --}}
+        <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner1.jpg') }}" alt="">
+        <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner2.png') }}" alt="">
+        <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner3.jpg') }}" alt="">
+        <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner4.jpg') }}" alt="">
+      </section>
     </div>
   </main>
 
