@@ -223,6 +223,7 @@ class SetprizeController extends Controller
    	}
     //清空所有数据
     public function flush(){
+
         AwardUsers::truncate();
         Cuid::truncate();
         SettingThing::truncate();
@@ -230,5 +231,23 @@ class SetprizeController extends Controller
         SettingCode::truncate();
         Code::truncate();
         return redirect('/admin/setPrize');
+    }
+    public function export(){
+        $cellData=array();
+        $cellData[0]=['中奖奖项','奖品名称','中奖者姓名','中奖者电话','中奖者地址','中奖时间'];
+
+        $Data=AwardUsers::all()->toArray();
+
+        for($i=1;$i<count($Data);$i++)
+        {
+            $cellData[$i]=[$Data[$i-1]['award_prize'],$Data[$i-1]['award_content'],
+                           $Data[$i-1]['award_realname'],$Data[$i-1]['award_phone'],
+                           $Data[$i-1]['award_address'],$Data[$i-1]['created_at']];
+        }
+        Excel::create('实物中奖信息表',function($excel) use ($cellData){
+            $excel->sheet('score', function($sheet) use ($cellData){
+                $sheet->rows($cellData);
+            });
+        })->export('xls');
     }
 }
