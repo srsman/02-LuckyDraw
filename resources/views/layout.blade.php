@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <title>@section('title')微信抽奖@show - 来自香蕉工作室</title>
+    <title>@section('title')微信抽奖@show</title>
     @section('defaultCSS')
       <link rel="stylesheet" href="{{ asset('dist/css/bootstrap.min.css') }}">
       <link rel="stylesheet" href="{{ asset('dist/css/index.css') }}">
@@ -38,7 +38,7 @@
                   <li><a href="changePasswd">修改密码</a></li>
                   <li><a href="logout">退出</a></li>
                 </ul>
-               @endif 
+               @endif
 
             </div>
           </div>

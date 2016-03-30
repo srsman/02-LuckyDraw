@@ -7,18 +7,21 @@
 
   <main id="get-prize" class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-        <img id="brand-logo" src="{{ asset('dist/img/logo.png') }}" alt="LANSUR Logo">
-        <a href="" data-toggle="modal" data-target="#rule"><span class="rule pull-right glyphicon glyphicon-question-sign" aria-hidden="true"></span></a>
+      <div class="red-bags col-xs-12 col-sm-6 col-sm-offset-3">
+        <div class="ground"></div>
+        <img id="brand-logo" src="{{ asset('dist/img/logo@2x.png') }}" alt="LANSUR Logo">
+        <a class="rule-icon" href="" data-toggle="modal" data-target="#rule"><img src="{{ asset('dist/img/rules.png') }}" alt="游戏规则" /></a>
+        <div id="congratulation"></div>
 
         {{-- 提示中奖区域 --}}
         <section class="prize-info col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
           <h5 class="col-xs-12">恭喜你！<br>中了{{ $luckdraw['prize'] }}！</h5>
           <h6 class="prize-name">{{$luckdraw['name']}}</h6>
-          <div class="prize-img col-xs-8 col-xs-offset-2">
+          <div class="prize-img">
             <img class="prize" src="{{asset('uploads/img').'/'.$luckdraw['url'] }}" alt="奖品图片">
           </div>
         </section>
+
         @if($luckdraw['category_id']===2)
         <section class="other-prizes col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
           <h6 class="prize-code">【领取码】: {{ $luckdraw['code'] }}</h6>
@@ -35,21 +38,13 @@
         </section>
 
         <section class="get-btn col-xs-6 col-xs-offset-3">
-        @if($luckdraw['category_id']===3)
-          <a href="" class="btn btn-normal btn-success" data-toggle="modal" data-target="#getIt">我要领奖</a>
-        @else
-          <a href="{{ 'https://'.$luckdraw['prize_url'] }}" class="btn btn-normal btn-success" >兑换</a>
-        @endif
+          @if($luckdraw['category_id']===3)
+            <a href="" class="btn btn-lg btn-success" data-toggle="modal" data-target="#getIt">我要领奖</a>
+          @else
+            <a href="{{ 'https://'.$luckdraw['prize_url'] }}" class="btn btn-lg btn-success" >兑换</a>
+          @endif
         </section>
         {{-- 提示中奖区域 --}}
-
-        <section class="partner col-xs-12">
-          <p>合作伙伴</p>
-          <img src="{{ asset('dist/img/partner1.jpg') }}" alt="">
-          <img src="{{ asset('dist/img/partner2.jpg') }}" alt="">
-          <img src="{{ asset('dist/img/partner3.jpg') }}" alt="">
-          <img src="{{ asset('dist/img/partner4.jpg') }}" alt="">
-        </section>
 
         {{-- 填写领奖信息模态框 --}}
         <div id="getIt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -121,6 +116,14 @@
         {{-- 模态框结束 --}}
 
       </div>
+
+      <section class="partner col-xs-12">
+        {{-- <p>合作伙伴</p> --}}
+        <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner1.jpg') }}" alt="">
+        <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner2.png') }}" alt="">
+        <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner3.jpg') }}" alt="">
+        <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner4.jpg') }}" alt="">
+      </section>
     </div>
   </main>
 
