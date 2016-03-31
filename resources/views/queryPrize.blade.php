@@ -10,6 +10,7 @@
       <div id="query-prize" class="col-md-10 col-md-offset-1">
         <div class="page-header">
           <h2 class="h3">查询中奖情况</h2>
+
           <form id="query-search" action="search"  method='post' class="navbar-form navbar-left" role="search">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="form-group">
@@ -34,6 +35,7 @@
               </div>
             </div>
             <button type="submit" class="btn btn-default">搜索</button>
+            <a href="export" role="button" class="btn btn-normal btn-info">导出实物中奖信息</a>
           </form>
         </div>
 
