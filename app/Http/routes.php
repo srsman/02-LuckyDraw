@@ -55,6 +55,8 @@ Route::group(['middleware' => 'login'], function()
     //退出
     Route::get('admin/logout', 'AdminController@logout');
     
+    //清空所有数据
+    Route::get('admin/flush', 'SetprizeController@flush');
 });
 
 // Route::any('/wechat', 'WechatController@serve');

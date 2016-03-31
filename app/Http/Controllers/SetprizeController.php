@@ -12,6 +12,7 @@ use App\SettingCode;   	//使用领取码奖项设置表
 use App\Code;   		//使用领取码子表
 use App\Category;   	//使用分类奖项设置表
 use App\AwardUsers;  	//使用个人信息表
+use App\Cuid;           //使用cuid表
 use Request;   			//输入类
 use DB;  				//数据连接类
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -56,7 +57,7 @@ class SetprizeController extends Controller
     	$new_link->prize_url=Request::input('prizeurl');
     	$new_link->weight=Request::input('weight');
     	//上传图片并保存链接
-    	$destinationPath = public_path().'\uploads\img';
+    	$destinationPath = public_path().'/uploads/img';
     	$pic=Request::file('inputImg');
     	$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
         $file = Request::file('inputImg')->move($destinationPath, $fileName);
@@ -76,7 +77,7 @@ class SetprizeController extends Controller
     	$pic= Request::file('inputImg');
     	if(!empty($pic)){
     		$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
-	    	$destinationPath = public_path().'\uploads\img';
+	    	$destinationPath = public_path().'/uploads/img';
 	        $file = Request::file('inputImg')->move($destinationPath, $fileName);
 	        $link->url=$fileName;
     	}
@@ -98,7 +99,7 @@ class SetprizeController extends Controller
     	$new_code->prize_url=Request::input('prize_url');
     	$new_code->weight=Request::input('weight');
     	 //上传图片并保存链接
-    	$destinationPath = public_path().'\uploads\img';
+    	$destinationPath = public_path().'/uploads/img';
     	$pic=Request::file('inputImg');
     	$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
         $file = Request::file('inputImg')->move($destinationPath, $fileName);
@@ -145,7 +146,7 @@ class SetprizeController extends Controller
     	$pic= Request::file('inputImg');
     	if(!empty($pic)){
     		$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
-	    	$destinationPath = public_path().'\uploads\img';
+	    	$destinationPath = public_path().'/uploads/img';
 	        $file = Request::file('inputImg')->move($destinationPath, $fileName);
 	        $code->url=$fileName;
     	}
@@ -169,7 +170,7 @@ class SetprizeController extends Controller
     	$new_thing->weight=Request::input('weight');
     	$new_thing->amount=Request::input('amount');
     	//上传图片并保存链接
-    	$destinationPath = public_path().'\uploads\img';
+    	$destinationPath = public_path().'/uploads/img';
     	$pic=Request::file('inputImg');
     	$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
         $file = Request::file('inputImg')->move($destinationPath, $fileName);
@@ -189,7 +190,7 @@ class SetprizeController extends Controller
     	$pic= Request::file('inputImg');
     	if(!empty($pic)){
     		$fileName = md5(date('ymdhis')).'.'.$pic->getClientOriginalExtension();
-	    	$destinationPath = public_path().'\uploads\img';
+	    	$destinationPath = public_path().'/uploads/img';
 	        $file = Request::file('inputImg')->move($destinationPath, $fileName);
 	        $thing->url=$fileName;
     	}
@@ -220,4 +221,14 @@ class SetprizeController extends Controller
             $querys = DB::table('award_user')->where('award_type','=',$select)->where('award_content','like','%'.$search.'%')->orderBy('created_at','desc')->Paginate(99999);
    		 return view('queryPrize')->with('querys',$querys)->with('search',$search);
    	}
+    //清空所有数据
+    public function flush(){
+        AwardUsers::truncate();
+        Cuid::truncate();
+        SettingThing::truncate();
+        SettingLink::truncate();
+        SettingCode::truncate();
+        Code::truncate();
+        return redirect('/admin/setPrize');
+    }
 }

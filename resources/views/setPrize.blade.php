@@ -10,7 +10,10 @@
       <div id="set-prize" class="col-lg-10 col-lg-offset-1">
 
         <div class="page-header">
-          <h2 class="h3">设置奖项</h2>
+          <h2 class="h3">
+          设置奖项
+          <a href="flush" role="button" class="btn btn-normal btn-danger pull-right" onclick="return confirm('确定要清空所有数据,包括中奖者信息？');">一键清空所有数据</a>
+          </h2>
         </div>
 
         <!-- 设置概率 -->
