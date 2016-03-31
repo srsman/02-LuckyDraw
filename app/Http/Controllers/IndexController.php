@@ -18,6 +18,26 @@ class IndexController extends Controller
 {
   //首页，抽奖页面
 	public  function index($cuid){
+        //保存当前路径并判断是否获取过微信用户信息
+        session_start();
+        //print_r($_SESSION['wechat_user']);
+        $_SESSION['index_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        //echo $_SESSION['index_url'];
+        if(empty($_SESSION['wechat_user'])){
+            return redirect('weixin');
+        }
+
+        //此处可加一个cuid和openid是否对应的判断todo（避免乱输cuid恶意兑奖）
+        $is_openid = AwardUsers::where('wx_openid',$_SESSION['wechat_user']['id'])->get()->toArray();
+        $count = AwardUsers::where('wx_openid',$_SESSION['wechat_user']['id'])->count ();
+        /*print_r($is_openid);
+        exit();*/
+        for($i=0;$i<=$count;$i++){
+            if(!empty($is_openid) && $is_openid[$i]['cuid']!=$cuid){
+                echo '参数错误，非法访问';
+                exit();
+            }
+        }
 	
 		//判断cuid是否存在数据库，存在则不能再抽奖
 		$estimate_cuid=Cuid::where('cuid','=',$cuid)->get()->toArray();
@@ -59,6 +79,9 @@ class IndexController extends Controller
 			$new_award_user->award_type=$type;
 			$new_award_user->award_prize=$luckdraw['prize'];
 			$new_award_user->award_content=$luckdraw['name'];
+            $new_award_user->wx_nickname=$_SESSION['wechat_user']['nickname'];
+            $new_award_user->wx_avatar=$_SESSION['wechat_user']['avatar'];
+            $new_award_user->wx_openid=$_SESSION['wechat_user']['id'];
 			$new_award_user->save();
 		}
 		//同类奖品随机出现三样

@@ -15,6 +15,9 @@
  Route::get('/getPrize/CUID={cuid}', 'IndexController@index');
  //中奖填写个人信息
  Route::post('/getPrize/fillInfo/{cuid}','IndexController@fillInfo');
+ //微信获取信息
+Route::get('/weixin', 'Wechat\WechatController@getInfo');
+Route::get('/oauth_callback', 'Wechat\WechatController@oauth_callback');
 
 // Route::get('/wechat-test', 'Wechat\WechatController@test');
 
@@ -55,11 +58,6 @@ Route::group(['middleware' => 'login'], function()
     //退出
     Route::get('admin/logout', 'AdminController@logout');
     
-    //清空所有数据
-    Route::get('admin/flush', 'SetprizeController@flush');
-
-    //导出所有数据
-    Route::get('admin/export', 'SetprizeController@export');
 });
 
 // Route::any('/wechat', 'WechatController@serve');
