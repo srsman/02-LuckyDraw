@@ -115,6 +115,7 @@
         </div>
         {{-- 模态框结束 --}}
 
+
       </div>
 
       <section class="partner col-xs-12">
@@ -126,5 +127,7 @@
       </section>
     </div>
   </main>
+ 
 
 @stop
+@include('roll') 

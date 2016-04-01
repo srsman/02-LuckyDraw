@@ -11,7 +11,9 @@
  });
  Route::post('/admin/login','AdminController@login');
 
- //抽奖首页
+ //抽奖面页
+ Route::get('/rolling/CUID={cuid}', 'IndexController@roll');
+ //得奖页面
  Route::get('/getPrize/CUID={cuid}', 'IndexController@index');
  //中奖填写个人信息
  Route::post('/getPrize/fillInfo/{cuid}','IndexController@fillInfo');

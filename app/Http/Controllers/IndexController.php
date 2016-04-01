@@ -16,7 +16,11 @@ use App\Cuid;			//使用cuid表
 
 class IndexController extends Controller
 {
-  //首页，抽奖页面
+  //首页，滚动页面
+	public function roll($cuid){
+		return view('roll',['cuid'=>$cuid]);
+	}
+  //得奖页面
 	public  function index($cuid){
 	
 		//判断cuid是否存在数据库，存在则不能再抽奖
