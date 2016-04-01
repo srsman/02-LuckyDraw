@@ -330,3 +330,35 @@ body {
 		margin-bottom: 0;
   }
 }
+
+
+
+// 我的中奖情况
+.my-prize {
+	margin-top: 20px;
+
+	.user-info {
+		margin-bottom: 15px;
+	}
+
+	.user-avatar {
+		width: 60px;
+		height: 60px;
+		background-color: #fefefe;
+	}
+
+	.username {
+		display: inline-block;
+		margin-top: 8px;
+		margin-bottom: 0;
+		margin-left: 10px;
+		font-weight: 700;
+		vertical-align: top;
+	}
+
+	.prize-count {
+		font-size: 16px;
+		text-align: center;
+		color: #ce1414;
+	}
+}

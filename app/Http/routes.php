@@ -1,6 +1,8 @@
 <?php
 
-
+Route::get('/prizeInfo', function () {
+   return view('prizeInfo');
+});
 
  //登录
  Route::get('/admin/login', function () {
@@ -25,9 +27,9 @@ Route::get('/oauth_callback', 'Wechat\WechatController@oauth_callback');
 
 
 Route::group(['middleware' => 'login'], function()
-{   
+{
     //设置奖项
-    Route::get('admin/setPrize', 'SetprizeController@index');    
+    Route::get('admin/setPrize', 'SetprizeController@index');
     Route::post('admin/setPrize/category', 'SetprizeController@setcategory');
 
     //链接 新增 修改 删除
@@ -40,9 +42,9 @@ Route::group(['middleware' => 'login'], function()
     Route::post('admin/setPrize/editcode/{id}', 'SetprizeController@editcode');
     Route::get('admin/setPrize/delcode/{id}', 'SetprizeController@delcode');
 
-    //实物 新增 修改 删除    
-    Route::post('admin/setPrize/thing', 'SetprizeController@addthing');    
-    Route::post('admin/setPrize/editthing/{id}', 'SetprizeController@editthing');    
+    //实物 新增 修改 删除
+    Route::post('admin/setPrize/thing', 'SetprizeController@addthing');
+    Route::post('admin/setPrize/editthing/{id}', 'SetprizeController@editthing');
     Route::get('admin/setPrize/delthing/{id}', 'SetprizeController@delthing');
 
     //查询中奖信息
@@ -59,7 +61,7 @@ Route::group(['middleware' => 'login'], function()
 
     //退出
     Route::get('admin/logout', 'AdminController@logout');
-    
+
 });
 
 // Route::any('/wechat', 'WechatController@serve');
