@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/prizeInfo', function () {
-   return view('prizeInfo');
-});
+Route::get('/prizeInfo', 'IndexController@prizeinfo');
 
  //登录
  Route::get('/admin/login', function () {
@@ -52,6 +50,8 @@ Route::group(['middleware' => 'login'], function()
 
     //搜索
     Route::post('admin/search', 'SetprizeController@searchaward');
+    //导出实物信息
+    Route::get('admin/export', 'SetprizeController@export');
 
     //修改密码
     Route::get('/admin/changePasswd', function () {
