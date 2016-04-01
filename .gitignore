@@ -5,6 +5,5 @@
 Homestead.yaml
 Homestead.json
 .env
-/composer.lock
 bower_components
 /config/app.php
