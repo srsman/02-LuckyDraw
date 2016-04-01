@@ -28,8 +28,5 @@
     "gulp-sass": "^2.2.0",
     "gulp-uglify": "^1.5.3"
   },
-  "dependencies": {
-    "laravel-elixir": "^4.0.0"
-  },
   "license": "ISC"
 }
