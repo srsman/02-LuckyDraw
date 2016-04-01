@@ -12,12 +12,12 @@
           </div>
           <div class="panel-body">
             <div class="user-info">
-              <img src="" alt="用户头像" title="用户头像" class="user-avatar">
-              <h2 class="username h6">林小斯</h2>
+              <img src="{{ $prizeinfo[0]['wx_avatar'] }}" alt="用户头像" title="用户头像" class="user-avatar">
+              <h2 class="username h6">{{ $prizeinfo[0]['wx_nickname'] }}</h2>
             </div>
 
-            <p class="prize-count">你共中奖 10 次！</p>
-
+            <p class="prize-count">你共中奖 {{ count($prizeinfo) }} 次！</p>
+            @foreach($prizeinfo as $info)
             <table class="table table-striped table-border table-hover">
               <thead>
                 <tr class="success">
@@ -28,64 +28,19 @@
               <tbody>
                 <tr>
                   <td>奖项</td>
-                  <td>一等奖</td>
+                  <td>{{ $info['award_prize'] }}</td>
                 </tr>
                 <tr>
                   <td>奖品名称</td>
-                  <td>SKII 眼霜</td>
+                  <td>{{ $info['award_content'] }}</td>
                 </tr>
                 <tr>
                   <td>中奖时间</td>
-                  <td>2016 年 4 月 1 日</td>
+                  <td>{{ $info['created_at'] }}</td>
                 </tr>
               </tbody>
             </table>
-
-            <table class="table table-striped table-border table-hover">
-              <thead>
-                <tr class="danger">
-                  <th>奖品信息</th>
-                  <th>详情</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>奖项</td>
-                  <td>一等奖</td>
-                </tr>
-                <tr>
-                  <td>奖品名称</td>
-                  <td>SKII 眼霜</td>
-                </tr>
-                <tr>
-                  <td>中奖时间</td>
-                  <td>2016 年 4 月 1 日</td>
-                </tr>
-              </tbody>
-            </table>
-
-            <table class="table table-striped table-border table-hover">
-              <thead>
-                <tr class="info">
-                  <th>奖品信息</th>
-                  <th>详情</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>奖项</td>
-                  <td>一等奖</td>
-                </tr>
-                <tr>
-                  <td>奖品名称</td>
-                  <td>SKII 眼霜</td>
-                </tr>
-                <tr>
-                  <td>中奖时间</td>
-                  <td>2016 年 4 月 1 日</td>
-                </tr>
-              </tbody>
-            </table>
+            @endforeach
           </div>
         </div>
       </div>

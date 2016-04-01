@@ -154,7 +154,6 @@
 
       $('#begin').click(function() {
         var u = $('.roll-num').innerHeight();
-        alert(u);
         if (isBegin) return false;
         isBegin = true;
         $(".roll-num").css('backgroundPositionY', 0);

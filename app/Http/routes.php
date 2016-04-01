@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/prizeInfo', function () {
-   return view('prizeInfo');
-});
+Route::get('/prizeInfo', 'IndexController@prizeinfo');
 
  //登录
  Route::get('/admin/login', function () {
