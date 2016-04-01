@@ -241,13 +241,14 @@ body {
   left: 0;
   top: 40%;
   width: 100%;
-  z-index: 8;
+  z-index: 99;
   overflow: hidden;
   text-align: center; }
 
 #roll .roll-num {
   float: left;
   width: 25%;
+  height: 35%;
   padding-bottom: 35%;
   background: url("../img/num.png") 0 0 repeat-y;
   background-size: cover; }
@@ -258,7 +259,7 @@ body {
   left: 50%;
   margin-top: 20px;
   margin-left: -42px;
-  z-index: 999999; }
+  z-index: 9999; }
 
 #roll .partner {
   margin-top: 0;
