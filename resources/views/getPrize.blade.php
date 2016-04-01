@@ -115,6 +115,7 @@
         </div>
         {{-- 模态框结束 --}}
 
+
       </div>
 
       <section class="partner col-xs-12">
@@ -125,6 +126,67 @@
         <img class="img-responsive col-xs-3" src="{{ asset('dist/img/partner4.jpg') }}" alt="">
       </section>
     </div>
+
+    {{-- 引入滚动抽奖 --}}
+    @include('roll')
+
   </main>
 
+@stop
+
+@section('customJS')
+  <script src="{{asset('js/easing.js')}}"></script>
+
+  {{-- 滚动算法 --}}
+  <script>
+    $(document).ready(function() {
+      $("#roll").modal('show');
+    });
+
+    function numRand() {
+      var x = 9999; //上限
+      var y = 1111; //下限
+      var rand = parseInt(Math.random() * (x - y + 1) + y);
+      return rand;
+    }
+    var isBegin = false;
+    $(function() {
+
+      $('#begin').click(function() {
+        var u = $('.roll-num').innerHeight();
+        alert(u);
+        if (isBegin) return false;
+        isBegin = true;
+        $(".roll-num").css('backgroundPositionY', 0);
+        // var result = numRand();
+        var result = '0000';
+        $('#res').text('摇奖结果 = ' + result);
+        var num_arr = (result + '').split('');
+        $(".roll-num").each(function(index) {
+          var _num = $(this);
+          setTimeout(function() {
+            _num.animate({
+              backgroundPositionY: (u * 12)
+            }, {
+              duration: 6000 + index * 3000,
+              easing: "easeInOutCirc",
+              complete: function() {
+                if (index == 3) {
+                  isBegin = false;
+                  alert('恭喜你中奖啦');
+                  $('#roll').modal('hide');
+
+                };
+
+              }
+
+            });
+
+          }, index * 300);
+
+        });
+
+      });
+    });
+  </script>
 @stop

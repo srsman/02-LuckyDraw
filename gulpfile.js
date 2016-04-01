@@ -5,7 +5,6 @@ var cssnano = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
 var image = require('gulp-image');
 var browserSync = require('browser-sync').create();
-var elixir = require('laravel-elixir');
 
 // 开发阶段
 gulp.task("dev", ["serve"]);

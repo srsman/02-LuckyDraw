@@ -208,3 +208,78 @@ body {
   .partner .col-xs-3 {
     padding-left: 0;
     padding-right: 5px; }
+
+#roll .modal-content {
+  width: 100%;
+  height: 90vh; }
+
+#roll .modal-body {
+  width: 100%;
+  height: 65%; }
+
+#roll .main_bg {
+  width: 100%;
+  height: 100%;
+  background: url("../img/main_bg.jpg") center center no-repeat;
+  background-size: cover; }
+
+#roll .main {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+#roll .num_mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  background: url("../img/num_mask.png") center 60% no-repeat;
+  background-size: contain; }
+
+#roll .num_box {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 100%;
+  z-index: 8;
+  overflow: hidden;
+  text-align: center; }
+
+#roll .roll-num {
+  float: left;
+  width: 25%;
+  padding-bottom: 35%;
+  background: url("../img/num.png") 0 0 repeat-y;
+  background-size: cover; }
+
+#roll .btn {
+  position: absolute;
+  bottom: 7%;
+  left: 50%;
+  margin-top: 20px;
+  margin-left: -42px;
+  z-index: 999999; }
+
+#roll .partner {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.my-prize {
+  margin-top: 20px; }
+  .my-prize .user-info {
+    margin-bottom: 15px; }
+  .my-prize .user-avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #fefefe; }
+  .my-prize .username {
+    display: inline-block;
+    margin-top: 8px;
+    margin-bottom: 0;
+    margin-left: 10px;
+    font-weight: 700;
+    vertical-align: top; }
+  .my-prize .prize-count {
+    font-size: 16px;
+    text-align: center;
+    color: #ce1414; }

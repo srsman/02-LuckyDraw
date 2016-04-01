@@ -51,6 +51,7 @@
       <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     @show
 
-    @section('customJS')@show
+    @section('customJS')
+    @show
   </body>
 </html>
