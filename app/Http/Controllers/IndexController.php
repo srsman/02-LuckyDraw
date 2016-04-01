@@ -269,7 +269,7 @@ class IndexController extends Controller
         }
 
         $prizeinfo = AwardUsers::where('wx_openid',$_SESSION['wechat_user']['id'])->get()->toArray();
-        retrun view('prizeinfo',['prizeinfo'=>$prizeinfo]);
+        return view('prizeinfo',['prizeinfo'=>$prizeinfo]);
 
     }
 
