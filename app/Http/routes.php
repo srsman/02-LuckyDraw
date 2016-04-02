@@ -11,12 +11,12 @@ Route::get('/prizeInfo', 'IndexController@prizeinfo');
  });
  Route::post('/admin/login','AdminController@login');
 
- // //抽奖面页
- // Route::get('/rolling/CUID={cuid}', 'IndexController@roll');
+ //抽奖面页
+ Route::get('/getPrize/CUID={cuid}', 'IndexController@roll');
  //得奖页面
- Route::get('/getPrize/CUID={cuid}', 'IndexController@index');
+ Route::get('/Prize/CUID={cuid}', 'IndexController@index');
  //中奖填写个人信息
- Route::post('/getPrize/fillInfo/{cuid}','IndexController@fillInfo');
+ Route::post('/Prize/fillInfo/{cuid}','IndexController@fillInfo');
  //微信获取信息
 Route::get('/weixin', 'Wechat\WechatController@getInfo');
 Route::get('/oauth_callback', 'Wechat\WechatController@oauth_callback');
