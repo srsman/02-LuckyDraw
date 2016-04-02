@@ -41,7 +41,7 @@
           @if($luckdraw['category_id']===3)
             <a href="" class="btn btn-lg btn-success" data-toggle="modal" data-target="#getIt">我要领奖</a>
           @else
-            <a href="{{ 'https://'.$luckdraw['prize_url'] }}" class="btn btn-lg btn-success" >兑换</a>
+            <a href="{{ $luckdraw['prize_url'] }}" class="btn btn-lg btn-success" >兑换</a>
           @endif
         </section>
         {{-- 提示中奖区域 --}}
