@@ -128,16 +128,15 @@
     </div>
 
     {{-- 引入滚动抽奖 --}}
-    @include('roll')
+    {{-- @include('roll') --}}
 
   </main>
 
 @stop
-
-@section('customJS')
+{{-- @section('customJS')
   <script src="{{asset('js/easing.js')}}"></script>
 
-  {{-- 滚动算法 --}}
+
   <script>
     $(document).ready(function() {
       $("#roll").modal('show');
@@ -189,3 +188,4 @@
     });
   </script>
 @stop
+ --}}
