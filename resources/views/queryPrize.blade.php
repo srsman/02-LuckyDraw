@@ -47,52 +47,54 @@
             <div class="row">
               <div class="col-xs-12">
 
-                <table class="table table-striped table-border table-hover ">
-                  <thead>
-                    <tr>
-                      <th>序号</th>
-                      <th>微信昵称</th>
-                      <th>类型</th>
-                      <th>中奖奖项</th>
-                      <th>奖品名称</th>
-                      <th>中奖者姓名</th>
-                      <th>电话</th>
-                      <th class="address">住址</th>
-                      <th>中奖时间</th>
+              <div class="table-responsive">
+                  <table class="table table-striped table-bordered table-hover ">
+                    <thead>
+                      <tr>
+                        <th>序号</th>
+                        <th>微信昵称</th>
+                        <th>类型</th>
+                        <th>中奖奖项</th>
+                        <th>奖品名称</th>
+                        <th>中奖者姓名</th>
+                        <th>电话</th>
+                        <th>住址</th>
+                        <th>中奖时间</th>
 
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($querys as $key=> $query)
-                    @if ($query->award_prize==='一等奖')
-                    <tr class="success">
-                    @elseif ($query->award_prize==='二等奖')
-                    <tr class="warning">
-                    @elseif ($query->award_prize==='三等奖')
-                    <tr class="info">
-                    @else
-                    <tr class="danger">
-                    @endif
-                      <td>{{ ++$key }}</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($querys as $key=> $query)
+                      @if ($query->award_prize==='一等奖')
+                      <tr class="success">
+                      @elseif ($query->award_prize==='二等奖')
+                      <tr class="warning">
+                      @elseif ($query->award_prize==='三等奖')
+                      <tr class="info">
+                      @else
+                      <tr class="danger">
+                      @endif
+                        <td>{{ ++$key }}</td>
                       <td>{{ $query->wx_nickname }}</td>
-                      <td>
-                        @if ($query->award_type==='link')
-                         链接
-                         @elseif($query->award_type==='code')
-                         领取码
-                         @else 实物
-                         @endif
-                      </td>
-                      <td class="prize-place">{{$query->award_prize}}</td>
-                      <td>{{$query->award_content}}</td>
-                      <td>{{$query->award_realname}}</td>
-                      <td>{{$query->award_phone}}</td>
-                      <td class="address">{{$query->award_address}}</td>
-                      <td>{{$query->created_at}}</td>
-                    </tr>
-                    @endforeach
-                  </tbody>
-                </table>
+                        <td>
+                          @if ($query->award_type==='link')
+                           链接
+                           @elseif($query->award_type==='code')
+                           领取码
+                           @else 实物
+                           @endif
+                        </td>
+                        <td class="prize-place">{{$query->award_prize}}</td>
+                        <td>{{$query->award_content}}</td>
+                        <td>{{$query->award_realname}}</td>
+                        <td>{{$query->award_phone}}</td>
+                        <td>{{$query->award_address}}</td>
+                        <td>{{$query->created_at}}</td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
                 {!! $querys->render() !!}
               </div>
             </div>

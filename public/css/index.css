@@ -67,9 +67,6 @@ body {
 #set-prize tr td:last-child {
   width: 120px; }
 
-#query-prize .address {
-  max-width: 150px; }
-
 #query-prize table,
 #set-prize table {
   text-align: center;
