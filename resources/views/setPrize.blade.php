@@ -83,7 +83,7 @@
             <!-- 链接类表格 -->
             <div class="row">
               <div class="col-xs-12">
-                <table class="table table-striped table-border table-hover">
+                <table class="table table-striped table-hover">
                   <thead>
                     <tr>
                       <th>序号</th>
@@ -136,7 +136,7 @@
             <!-- 兑换码类表格 -->
             <div class="row">
               <div class="col-xs-12">
-                <table class="table table-striped table-border table-hover">
+                <table class="table table-striped table-hover">
                   <thead>
                     <tr>
                       <th>序号</th>
@@ -191,7 +191,7 @@
             <!-- 实物类表格 -->
             <div class="row">
               <div class="col-xs-12">
-                <table class="table table-striped table-border table-hover">
+                <table class="table table-striped table-hover">
                   <thead>
                     <tr>
                       <th>序号</th>

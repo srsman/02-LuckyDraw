@@ -18,28 +18,30 @@
 
             <p class="prize-count">你共中奖 {{ count($prizeinfo) }} 次！</p>
             @foreach($prizeinfo as $info)
-            <table class="table table-striped table-border table-hover">
-              <thead>
-                <tr class="success">
-                  <th>奖品信息</th>
-                  <th>详情</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>奖项</td>
-                  <td>{{ $info['award_prize'] }}</td>
-                </tr>
-                <tr>
-                  <td>奖品名称</td>
-                  <td>{{ $info['award_content'] }}</td>
-                </tr>
-                <tr>
-                  <td>中奖时间</td>
-                  <td>{{ $info['created_at'] }}</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr class="success">
+                    <th>奖品信息</th>
+                    <th>详情</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>奖项</td>
+                    <td>{{ $info['award_prize'] }}</td>
+                  </tr>
+                  <tr>
+                    <td>奖品名称</td>
+                    <td>{{ $info['award_content'] }}</td>
+                  </tr>
+                  <tr>
+                    <td>中奖时间</td>
+                    <td>{{ $info['created_at'] }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             @endforeach
           </div>
         </div>
