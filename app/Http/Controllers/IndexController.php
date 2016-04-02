@@ -16,10 +16,7 @@ use App\Cuid;			//使用cuid表
 
 class IndexController extends Controller
 {
-  //首页，滚动页面
-	public function roll($cuid){
-		return view('roll',['cuid'=>$cuid]);
-	}
+  
   //得奖页面
 	public  function index($cuid){
         //保存当前路径并判断是否获取过微信用户信息
@@ -269,7 +266,7 @@ class IndexController extends Controller
         }
 
         $prizeinfo = AwardUsers::where('wx_openid',$_SESSION['wechat_user']['id'])->get()->toArray();
-        return view('prizeinfo',['prizeinfo'=>$prizeinfo]);
+        return view('prizeInfo',['prizeinfo'=>$prizeinfo]);
 
     }
 

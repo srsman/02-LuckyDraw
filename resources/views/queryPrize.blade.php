@@ -51,6 +51,7 @@
                   <thead>
                     <tr>
                       <th>序号</th>
+                      <th>微信昵称</th>
                       <th>类型</th>
                       <th>中奖奖项</th>
                       <th>奖品名称</th>
@@ -73,6 +74,7 @@
                     <tr class="danger">
                     @endif
                       <td>{{ ++$key }}</td>
+                      <td>{{ $query->wx_nickname }}</td>
                       <td>
                         @if ($query->award_type==='link')
                          链接

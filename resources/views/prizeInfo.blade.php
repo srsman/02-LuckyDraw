@@ -12,8 +12,8 @@
           </div>
           <div class="panel-body">
             <div class="user-info">
-              <img src="{{ $prizeinfo[0]['wx_avatar'] }}" alt="用户头像" title="用户头像" class="user-avatar">
-              <h2 class="username h6">{{ $prizeinfo[0]['wx_nickname'] }}</h2>
+              <img src="{{ $prizeinfo[0]['wx_avatar'] or $_SESSION['wechat_user']['avatar'] }}" alt="用户头像" title="用户头像" class="user-avatar">
+              <h2 class="username h6">{{ $prizeinfo[0]['wx_nickname'] or $_SESSION['wechat_user']['nickname']}}</h2>
             </div>
 
             <p class="prize-count">你共中奖 {{ count($prizeinfo) }} 次！</p>
