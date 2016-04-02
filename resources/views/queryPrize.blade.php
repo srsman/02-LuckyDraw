@@ -57,7 +57,7 @@
                       <th>奖品名称</th>
                       <th>中奖者姓名</th>
                       <th>电话</th>
-                      <th>住址</th>
+                      <th class="address">住址</th>
                       <th>中奖时间</th>
 
                     </tr>
@@ -87,7 +87,7 @@
                       <td>{{$query->award_content}}</td>
                       <td>{{$query->award_realname}}</td>
                       <td>{{$query->award_phone}}</td>
-                      <td>{{$query->award_address}}</td>
+                      <td class="address">{{$query->award_address}}</td>
                       <td>{{$query->created_at}}</td>
                     </tr>
                     @endforeach
