@@ -269,9 +269,17 @@ body {
 
 // 摇奖滚动效果
 #roll {
+	width: 100%;
+	height: 100vh;
+
+	.modal-dialog {
+		width: 100%;
+		height: 100%;
+	}
+
 	.modal-content {
 		width: 100%;
-		height: 90vh;
+		height: 90%;
 	}
 
 	.modal-body {
