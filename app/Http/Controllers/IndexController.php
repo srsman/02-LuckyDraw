@@ -16,10 +16,8 @@ use App\Cuid;			//使用cuid表
 
 class IndexController extends Controller
 {
-  
-  //得奖页面
-	public  function index($cuid){
-        //保存当前路径并判断是否获取过微信用户信息
+  public function roll($cuid){
+  	        //保存当前路径并判断是否获取过微信用户信息
         session_start();
         //print_r($_SESSION['wechat_user']);
         $_SESSION['index_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -27,7 +25,26 @@ class IndexController extends Controller
         if(empty($_SESSION['wechat_user'])){
             return redirect('weixin');
         }
-	
+        //判断cuid是否存在数据库，存在则不用在摇奖
+        $estimate_cuid=Cuid::where('cuid','=',$cuid)->get()->toArray();
+        if(!empty($estimate_cuid))
+		{
+  			return redirect('./Prize/CUID='.$cuid);
+  		}
+  		else{
+  			return view('rolling')->with('cuid',$cuid);
+  		}
+  }
+  //得奖页面
+	public  function index($cuid){
+
+		session_start();
+        //print_r($_SESSION['wechat_user']);
+        $_SESSION['index_url'] = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        //echo $_SESSION['index_url'];
+        if(empty($_SESSION['wechat_user'])){
+            return redirect('weixin');
+        }
 		//判断cuid是否存在数据库，存在则不能再抽奖
 		$estimate_cuid=Cuid::where('cuid','=',$cuid)->get()->toArray();
 		if(!empty($estimate_cuid))
@@ -252,7 +269,7 @@ class IndexController extends Controller
         $award_address  = $input['award_address'];
         $awarduser=AwardUsers::where('cuid','=',$cuid)->update(['award_realname'=>$award_realname,      'award_phone'=>$award_phone,'award_address'=>$award_address]); 
 
-        return redirect('/getPrize/CUID='.$cuid);
+        return redirect('/Prize/CUID='.$cuid);
     }
     public function prizeinfo(){
 
