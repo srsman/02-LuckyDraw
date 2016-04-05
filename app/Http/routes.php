@@ -50,7 +50,7 @@ Route::group(['middleware' => 'login'], function()
 
     //搜索
     Route::post('admin/search', 'SetprizeController@searchaward');
-    //导出实物信息
+    //导出所有信息
     Route::get('admin/export', 'SetprizeController@export');
 
     //修改密码

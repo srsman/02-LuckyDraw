@@ -35,7 +35,7 @@
               </div>
             </div>
             <button type="submit" class="btn btn-default">搜索</button>
-            <a href="export" role="button" class="btn btn-normal btn-info">导出实物中奖信息</a>
+            <a href="export" role="button" class="btn btn-normal btn-info">导出中奖信息</a>
           </form>
         </div>
 
