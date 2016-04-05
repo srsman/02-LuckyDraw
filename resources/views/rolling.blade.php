@@ -20,7 +20,7 @@ html,body{margin:0;padding:0;overflow:hidden;background:#fff;}
 </head>
 <body>
 <br />
-<center><img src="{{asset('img/logo.png')}}" width="300px" height="120px" alt="" /></center>
+<center><img src="{{asset('img/logo.jpg')}}" width="120px" alt="" /></center>
 <br />
 <br />
 <div class="main_bg">
